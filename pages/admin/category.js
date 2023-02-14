@@ -104,7 +104,7 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category)
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const resposne = await fetch(`${process.env.BASE_URL}category`)
     const errorCode = await resposne.ok ? false : resposne.statusCode
     const categories = await resposne.json()
