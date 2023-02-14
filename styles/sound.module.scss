@@ -1,0 +1,292 @@
+@import "./vars";
+@import "./mixin/mixin.scss";
+
+.container {
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 108rem;
+        height: 2px;
+        background: $white;
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        @include _375 {
+            width: 95%;
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 110rem;
+        height: 2px;
+        background: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        @include _375 {
+            width: 95%;
+        }
+    }
+
+    .wrapper {
+        padding: 8.1rem 9rem 11.3rem 9rem;
+        background: rgba($black, .5);
+        backdrop-filter: blur(34px);
+        border-radius: 2rem;
+        position: relative;
+
+        @include _375 {
+            padding: 2.4rem 0 .8rem;
+            background: none;
+            backdrop-filter: none;
+        }
+
+        .inner {
+            width: 100%;
+            height: 13rem;
+            margin-bottom: 3.2rem;
+
+            @include _375 {
+                height: 11.9rem;
+                margin-bottom: 1.6rem;
+            }
+
+            .item {
+                padding: 1.9rem 2rem 1.9rem 2.1rem;
+                background: $gray-dark;
+                border-radius: 2rem;
+                display: flex;
+                align-items: center;
+
+                @include _375 {
+                    padding: 1.8rem;
+                }
+
+                .logo__container {
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    margin-right: 1.9rem;
+                    width: 9rem;
+                    height: 9rem;
+
+                    @include _375 {
+                        width: 8.3rem;
+                        height: 8.3rem;
+                    }
+
+                    .logo {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+
+                    .head {
+                        display: flex;
+                        justify-content: space-between;
+                        height: 2.8rem;
+
+                        .title {
+                            font-size: 2.4rem;
+                            color: $white;
+                            font-weight: 500;
+                            text-transform: capitalize;
+
+                            @include _375 {
+                                font-size: 1.4rem;
+                                font-weight: 500;
+                                line-height: 2.8rem;
+                            }
+                        }
+                    }
+                    
+                    .scale {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        height: 45px;
+                        // overflow: hidden;
+                        overflow-y: clip;
+                        position: relative;
+
+                        .waveform {
+                            flex: 1 0 auto;
+                            max-width: 100%;
+                            margin-left: 3rem;
+                            position: relative;
+                            top: 50%;
+
+                            @include _375 {
+                                margin-left: 1.3rem;
+                            }
+
+                            canvas {
+                                @include _375 {
+                                    width: 17.3rem !important;
+                                }
+                            }
+                        }
+                    }
+
+                    .button__text {
+                        width: 20rem;
+                        height: 3.2rem;
+                        border: 2px solid $white;
+                        border-radius: 1rem;
+                        font-size: 1.6rem;
+                        line-height: 3.2rem;
+                        font-weight: 600;
+                        color: $white;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        @include _375 {
+                            width: 3rem;
+                            height: 3rem;
+                            background-image: url("../static/icon/download.svg");
+                            background-size: 1.2rem 1.2rem;
+                            background-repeat: no-repeat;
+                            background-position: 50% 50%;
+                        }
+
+                        &:hover {
+                            border: none;
+                            background-color: $yellow;
+                            color: $black;
+                        }
+
+                        .text__inner {
+                            @include _375 {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}
+
+.track {
+    flex: 1;
+    height: 4.5rem;
+    overflow: hidden;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 0;
+    width: 4.4rem;
+    height: 3.2rem;
+    border: 2px solid $white;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $yellow;
+        border: none;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+.button__close_wrapper {
+    width: 4.4rem;
+    height: 3.2rem;
+    margin-right: 1.9rem;
+    text-align: right;
+    position: relative;
+
+    @include _375 {}
+}
+
+.button__share_close {
+    background: url("../static/icon/share-close.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 2px solid $white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.button__share {
+    background: url("../static/icon/share-white.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 2.4rem 2.4rem;
+    margin-right: 1.9rem;
+
+    @include _375 {
+        width: 3rem;
+        height: 3rem;
+        background-size: 1.4rem 1.1rem;
+    }
+
+    &:hover {
+        background-image: url("../static/icon/share-black.svg");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+.button__heart {
+    background: url("../static/icon/heart-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 2.3rem;
+
+    @include _375 {
+        display: none;
+    }
+
+    &:hover {
+        background-image: url("../static/icon/heart-black.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.timer {
+    width: 4.5rem;
+    height: 2.6rem;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid #000000;
+    backdrop-filter: blur(6px);
+    border-radius: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $black;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+
+    .timer__text {
+        color: $black;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1;
+    }
+}
