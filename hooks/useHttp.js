@@ -40,7 +40,7 @@ const useHttp = (url) => {
     }
 
     const downloadFile = async (fileLink) => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}music/download?filename=${fileLink}`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music/download?filename=${fileLink}`)
         return response
     }
 
