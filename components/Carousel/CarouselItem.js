@@ -25,7 +25,7 @@ const CarouselItem = ({slide, allStop, hideHeaderPlayer, selectActualCategoryId,
             {scroll: false}
         )
         selectActualCategoryId(slide.id)
-        changeLimit(process.env.NEXT_PUBLIC_SOUND_LIMIT)
+        changeLimit(+process.env.NEXT_PUBLIC_SOUND_LIMIT)
     }
 
     useEffect(() => {
