@@ -144,6 +144,9 @@
 
             @include _375 {
                 font-size: 4rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
         }
