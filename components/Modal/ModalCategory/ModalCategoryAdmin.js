@@ -23,7 +23,7 @@ const style = {
   p: 4,
 };
 
-const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValue, serverFunc, buttonTitle, fetchCategory}) => {
+const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValue, serverFunc, buttonTitle, fetchCategory, category}) => {
     const file = useRef(null)
     const router = useRouter()
 
@@ -42,7 +42,8 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
 
     useEffect(() => {
         console.log("nameValue", nameValue);
-        console.log("imgValue", imgValue);
+        console.log("nameValue", nameValue);
+        console.log("category modal", category);
     }, [])
 
     const formik = useFormik({

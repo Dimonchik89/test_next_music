@@ -25,9 +25,9 @@ const AdminCategoryItem = ({category, removeCategory}) => {
         }
     }
 
-    useEffect(() => {
-        console.log("category", category);
-    }, [category])
+    // useEffect(() => {
+    //     console.log("category", category);
+    // }, [category])
 
     const handleOpenAlert = ({status, text}) => {
         setShowAlert(prev => ({status, show: true, text}))
