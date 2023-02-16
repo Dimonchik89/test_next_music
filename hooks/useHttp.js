@@ -55,7 +55,7 @@ const useHttp = (url) => {
 
     const postData = async (body) => {
         try {
-            const data = await $authHost.post(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, body)
+            const data = await $authHost.post(url, body)
             return data
         } catch(e) {
             return e
@@ -64,7 +64,7 @@ const useHttp = (url) => {
 
     const updateData = async (body) => {
         try {
-            const data = await $authHost.patch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, body)
+            const data = await $authHost.patch(url, body)
             return data
         } catch(e) {
             return e
