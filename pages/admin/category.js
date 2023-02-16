@@ -15,25 +15,25 @@ import useHttp from "../../hooks/useHttp"
 import admin from "../../styles/admin.module.scss"
 import helper from "../../styles/helper.module.scss"
 
-const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
+const Category = ({addAllCategory, allCategory}) => {
     const [showModal, setShowModal] = useState(false)
     const [showAlert, setShowAlert] = useState({show: false, status: null, text: ""})
     const router = useRouter()
     const { postData } = useHttp('category')
 
-    useEffect(() => {
-        addAllCategory(categories)
-    }, [categories])
+    // useEffect(() => {
+    //     addAllCategory(categories)
+    // }, [categories])
 
-    if(errorCode) {
-        return (
-            <Button
-                onClick={() => router.reload()}
-            >
-                Ups, Reload page
-            </Button>
-        )
-    }
+    // if(errorCode) {
+    //     return (
+    //         <Button
+    //             onClick={() => router.reload()}
+    //         >
+    //             Ups, Reload page
+    //         </Button>
+    //     )
+    // }
 
     const handleOpenAlert = ({status, text}) => {
         setShowAlert(prev => ({status, show: true, text}))
@@ -104,15 +104,15 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category)
 
-export async function getServerSideProps() {
-    const resposne = await fetch(`${process.env.BASE_URL}category`)
-    const errorCode = await resposne.ok ? false : resposne.statusCode
-    const categories = await resposne.json()
+// export async function getServerSideProps() {
+//     const resposne = await fetch(`${process.env.BASE_URL}category`)
+//     const errorCode = await resposne.ok ? false : resposne.statusCode
+//     const categories = await resposne.json()
 
-    return {
-        props: {
-            categories,
-            errorCode
-        }
-    }
-}
+//     return {
+//         props: {
+//             categories,
+//             errorCode
+//         }
+//     }
+// }
