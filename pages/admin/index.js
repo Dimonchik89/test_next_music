@@ -23,7 +23,7 @@ import pagination from "../../styles/pagination.module.scss";
 const Admin = ({role, checkRole, addUser, music, selectMusics, actualMusics, categories, addAllCategory}) => {
     const [showModalMusic, setShowModalMusic] = useState(false)
     const [showAlert, setShowAlert] = useState({show: false, status: null, text: ""})
-    const {postData} = useHttp('music')
+    const {postData} = useHttp('/music')
     const router = useRouter()
 
 

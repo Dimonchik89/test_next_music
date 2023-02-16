@@ -14,7 +14,7 @@ import helper from "../../styles/helper.module.scss";
 import admin from "../../styles/admin.module.scss";
 
 const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount}) => {
-    const { deleteData, updateData } = useHttp(`music/${music.id}`)
+    const { deleteData, updateData } = useHttp(`/music/${music.id}`)
     const [categoriesInSound, setCategoriesInSound] = useState([])
     const arrCategoriesId = music.categoryId.split(', ')
     const [showModalMusic, setShowModalMusic] = useState(false)

@@ -19,7 +19,7 @@ const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
     const [showModal, setShowModal] = useState(false)
     const [showAlert, setShowAlert] = useState({show: false, status: null, text: ""})
     const router = useRouter()
-    const { postData } = useHttp('category')
+    const { postData } = useHttp('/category')
 
     useEffect(() => {
         addAllCategory(categories)

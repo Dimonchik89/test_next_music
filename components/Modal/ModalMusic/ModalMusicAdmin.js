@@ -76,7 +76,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                 values.keywords = ""
                 values.audio = null
                 values.img = null
-                fetchMusic(`music?page=${query}`)
+                fetchMusic(`/music?page=${query}`)
             } else {
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})

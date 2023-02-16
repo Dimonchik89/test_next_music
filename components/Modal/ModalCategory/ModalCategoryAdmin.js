@@ -57,7 +57,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                 handleOpenAlert({status: response.status, text: response.statusText})
                 values.name = ""
                 values.img = null
-                fetchCategory('category')
+                fetchCategory('/category')
             } else {
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})

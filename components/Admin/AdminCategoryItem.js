@@ -11,7 +11,7 @@ import ModalCategoryAdmin from "../Modal/ModalCategory/ModalCategoryAdmin";
 import admin from "../../styles/admin.module.scss";
 
 const AdminCategoryItem = ({category, removeCategory}) => {
-    const { deleteData, updateData } = useHttp(`category/${category.id}`)
+    const { deleteData, updateData } = useHttp(`/category/${category.id}`)
     const [errorModal, setErrorModal] = useState(false)
     const [updateModal, setUpdateModal] = useState(false)
     const [showAlert, setShowAlert] = useState({show: false, status: null, text: ""})
