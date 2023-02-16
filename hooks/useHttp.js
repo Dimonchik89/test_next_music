@@ -46,7 +46,7 @@ const useHttp = (url) => {
 
     const deleteData = async () => {
         try {
-            const data = await $authHost.delete(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`)
+            const data = await $authHost.delete(url)
             return data
         } catch(e) {
             return e
