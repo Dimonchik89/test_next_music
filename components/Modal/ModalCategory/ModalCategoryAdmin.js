@@ -40,6 +40,11 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
         }
     }
 
+    useEffect(() => {
+        console.log("nameValue", nameValue);
+        console.log("imgValue", imgValue);
+    }, [])
+
     const formik = useFormik({
         initialValues: {
             name: nameValue,
