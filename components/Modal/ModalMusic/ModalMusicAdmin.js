@@ -60,9 +60,15 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
         onSubmit: async (values) => {
             console.log(values.categoryId.join(", "));
             const formData = new FormData()
+            console.log("name", values.name.trim());
+            console.log("description", values.description.trim());
+            console.log("keywords", values.keywords);
+            console.log("categoryId", values.categoryId.join(", "));
+            console.log("img", values.img);
+            console.log("audio", values.audio);
             formData.append("name", values.name.trim())
             formData.append("description", values.description.trim())
-            formData.append("keywords", values.keywords.trim())
+            formData.append("keywords", values.keywords)
             formData.append("categoryId", values.categoryId.join(", "))
             formData.append("img", values.img)
             formData.append("audio", values.audio)
@@ -70,22 +76,27 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
             if(response.status === 200) {
                 handleClose()
                 handleOpenAlert({status: response.status, text: response.statusText})
-                values.name = ""
-                values.description = ""
-                values.categoryId = []
-                values.keywords = ""
-                values.audio = null
-                values.img = null
+                if(buttonTitle === "create") {
+                    values.name = ""
+                    values.description = ""
+                    values.categoryId = "" 
+                    values.keywords = null
+                    values.audio = null
+                    values.img = null
+                } else {
+                    values.audio = response.data?.audio
+                    values.img = response.data?.img
+                }
                 fetchMusic(`/music?page=${query}`)
             } else {
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})
-                values.name = ""
-                values.description = ""
-                values.categoryId = []
-                values.keywords = ""
-                values.audio = null
-                values.img = null
+                // values.name = ""
+                // values.description = ""
+                // values.categoryId = []
+                // values.keywords = ""
+                // values.audio = null
+                // values.img = null
             }
         }
     })

@@ -25,7 +25,6 @@ const style = {
 
 const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValue, serverFunc, buttonTitle, fetchCategory, category}) => {
     const file = useRef(null)
-    const router = useRouter()
 
     const changePreview = (e) => {
         const selectImg = e.target.files[0]
@@ -39,12 +38,6 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
             fr.readAsDataURL(e.target.files[0]);
         }
     }
-
-    useEffect(() => {
-        console.log("nameValue", nameValue);
-        console.log("nameValue", nameValue);
-        console.log("category modal", category);
-    }, [])
 
     const formik = useFormik({
         initialValues: {
@@ -61,14 +54,14 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
             if(response.status === 200) {
                 handleClose()
                 handleOpenAlert({status: response.status, text: response.statusText})
-                values.name = ""
-                values.img = null
+                values.name = response.data?.name
+                values.img = response.data?.img
                 fetchCategory('/category')
             } else {
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})
-                values.name = ""
-                values.img = null
+                // values.name = ""
+                // values.img = null
             }
         }
     })
