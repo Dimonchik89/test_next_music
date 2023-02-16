@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Typography, Box, Button } from "@mui/material"
 import { removeCategory } from "../../store/category";
 import { bindActionCreators } from "@reduxjs/toolkit";
