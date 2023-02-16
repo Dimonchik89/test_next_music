@@ -52,10 +52,14 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
             formData.append("img", values.img)
             const response = await serverFunc(formData)
             if(response.status === 200) {
+                if(buttonTitle === "create") {
+                    values.name = ""
+                    values.img = ""
+                } else {
+                    values.img = response.data?.img
+                }
                 handleClose()
                 handleOpenAlert({status: response.status, text: response.statusText})
-                values.name = response.data?.name
-                values.img = response.data?.img
                 fetchCategory('/category')
             } else {
                 handleClose()
