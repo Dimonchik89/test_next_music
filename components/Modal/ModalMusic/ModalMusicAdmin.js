@@ -59,6 +59,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
         },
         validate: musicValidate,
         onSubmit: async (values) => {
+            setLoading(true)
             const formData = new FormData()
             formData.append("name", values.name.trim())
             formData.append("description", values.description.trim())
@@ -67,7 +68,6 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
             formData.append("img", values.img)
             formData.append("audio", values.audio)
             const response = await serverFunc(formData)
-            setLoading(true)
             if(response.status === 200) {
                 setLoading(false)
                 handleClose()
@@ -238,7 +238,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                                     color="success"
                                     disabled
                                 >
-                                    <CircularProgress />
+                                    <CircularProgress size={16}/>
                                 </Button> :
                                 <Button
                                     variant="outlined"
@@ -248,13 +248,6 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                                     {buttonTitle}
                                 </Button>
                             }
-                            {/* <Button
-                                variant="outlined"
-                                type="submit"
-                                color="success"
-                            >
-                                {buttonTitle}
-                            </Button> */}
                         </Box>
                     </form>
                 </Box>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/system";
-import { Container } from "@mui/material";
+import { Container, CircularProgress, Box } from "@mui/material";
 import Header from "../Header/Header";
 import Carousel from "../Carousel/Carousel";
 import Sound from "../Sound/Sound";
@@ -20,8 +19,10 @@ import main from "../../styles/main.module.scss";
 
 const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incrementPage, currentPage, allCount, changeLimit, limit, actualMusics }) => {
     const router = useRouter()
+    const [loading, setLoading] = useState(false)
 
     const handleDownloadMore = () => {
+        setLoading(true)
         changeLimit(limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT)
         incrementPage()
         console.log("limit", limit);
@@ -55,6 +56,10 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
             .then(data => {
                 addMusic(data.payload)
             })
+            .catch(e => {
+                setLoading(false)
+                throw new Error(e)
+            })
     }
 
     return (
@@ -67,14 +72,25 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                 <Box
                     style={{display: "flex", justifyContent: "center", marginTop: "20px"}}
                 >
-                    <Button 
-                        variant="contained" 
-                        onClick={handleDownloadMore} 
-                        disabled={ +allCount === actualMusics.length}
-                        style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
-                    >
-                        Show more
-                    </Button>
+                    {
+                        loading ?
+                        <Button 
+                            variant="contained" 
+                            onClick={handleDownloadMore} 
+                            disabled
+                            style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px", width: "19.2rem", height: "5.2rem"}}
+                        >
+                            <CircularProgress/>
+                        </Button> :
+                        <Button 
+                            variant="contained" 
+                            onClick={handleDownloadMore} 
+                            disabled={ +allCount === actualMusics.length}
+                            style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
+                        >
+                            Show more
+                        </Button>
+                    }
                 </Box>
                 <ModalSubscribe/>
             </Container>

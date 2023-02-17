@@ -48,11 +48,11 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
         },
         validate: categoryValidate,
         onSubmit: async (values) => {
+            etLoading(true)
             const formData = new FormData()
             formData.append("name", values.name.trim())
             formData.append("img", values.img)
             const response = await serverFunc(formData)
-            setLoading(true)
             if(response.status === 200) {
                 setLoading(false)
                 if(buttonTitle === "create") {
@@ -139,7 +139,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                                     color="success"
                                     disabled
                                 >
-                                    <CircularProgress />
+                                    <CircularProgress size={16}/>
                                 </Button> :
                                 <Button
                                     variant="outlined"
