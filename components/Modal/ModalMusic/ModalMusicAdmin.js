@@ -232,14 +232,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                             </Button>
                             {
                                 loading ?
-                                <Button
-                                    variant="outlined"
-                                    type="submit"
-                                    color="success"
-                                    disabled
-                                >
-                                    <CircularProgress />
-                                </Button> :
+                                <CircularProgress /> :
                                 <Button
                                     variant="outlined"
                                     type="submit"

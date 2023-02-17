@@ -133,14 +133,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                             </Button>
                             {
                                 loading ?
-                                <Button
-                                    variant="outlined"
-                                    type="submit"
-                                    color="success"
-                                    disabled
-                                >
-                                    <CircularProgress />
-                                </Button> :
+                                <CircularProgress /> :
                                 <Button
                                     variant="outlined"
                                     type="submit"
