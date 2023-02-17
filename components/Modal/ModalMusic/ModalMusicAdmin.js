@@ -58,14 +58,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
         },
         validate: musicValidate,
         onSubmit: async (values) => {
-            console.log(values.categoryId.join(", "));
             const formData = new FormData()
-            console.log("name", values.name.trim());
-            console.log("description", values.description.trim());
-            console.log("keywords", values.keywords);
-            console.log("categoryId", values.categoryId.join(", "));
-            console.log("img", values.img);
-            console.log("audio", values.audio);
             formData.append("name", values.name.trim())
             formData.append("description", values.description.trim())
             formData.append("keywords", values.keywords)
@@ -87,7 +80,8 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                     values.audio = response.data?.audio
                     values.img = response.data?.img
                 }
-                fetchMusic(`/music?page=${query}`)
+                // fetchMusic(`/music?page=${query}`)
+                fetchMusic(`/music`)
             } else {
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})
@@ -238,13 +232,31 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                             >
                                 Select Music
                             </Button>
-                            <Button
+                            {
+                                loading ?
+                                <Button
+                                    variant="outlined"
+                                    type="submit"
+                                    color="success"
+                                    disabled
+                                >
+                                    <CircularProgress />
+                                </Button> :
+                                <Button
+                                    variant="outlined"
+                                    type="submit"
+                                    color="success"
+                                >
+                                    {buttonTitle}
+                                </Button>
+                            }
+                            {/* <Button
                                 variant="outlined"
                                 type="submit"
                                 color="success"
                             >
                                 {buttonTitle}
-                            </Button>
+                            </Button> */}
                         </Box>
                     </form>
                 </Box>

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Box, Button, Modal, TextField, Typography } from "@mui/material"
+import { Box, Button, CircularProgress, Modal, TextField, Typography } from "@mui/material"
 import { useFormik } from "formik"
 import { categoryValidate } from '../../../validate/validate';
 import { useRouter } from "next/router";
@@ -25,6 +25,7 @@ const style = {
 
 const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValue, serverFunc, buttonTitle, fetchCategory, category}) => {
     const file = useRef(null)
+    const [loading, setLoading] = useState(false)
 
     const changePreview = (e) => {
         const selectImg = e.target.files[0]
@@ -51,7 +52,9 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
             formData.append("name", values.name.trim())
             formData.append("img", values.img)
             const response = await serverFunc(formData)
+            setLoading(true)
             if(response.status === 200) {
+                setLoading(false)
                 if(buttonTitle === "create") {
                     values.name = ""
                     values.img = ""
@@ -62,6 +65,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                 handleOpenAlert({status: response.status, text: response.statusText})
                 fetchCategory('/category')
             } else {
+                setLoading(false)
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})
                 // values.name = ""
@@ -127,13 +131,24 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                             >
                                 Select Photo
                             </Button>
-                            <Button
-                                variant="outlined"
-                                type="submit"
-                                color="success"
-                            >
-                                {buttonTitle}
-                            </Button>
+                            {
+                                loading ?
+                                <Button
+                                    variant="outlined"
+                                    type="submit"
+                                    color="success"
+                                    disabled
+                                >
+                                    <CircularProgress />
+                                </Button> :
+                                <Button
+                                    variant="outlined"
+                                    type="submit"
+                                    color="success"
+                                >
+                                    {buttonTitle}
+                                </Button>
+                            }
                         </Box>
                     </form>
                 </Box>
