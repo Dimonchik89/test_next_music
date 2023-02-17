@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Box, Button, Checkbox, FormControlLabel, FormGroup, Modal, TextField, Typography, TextareaAutosize } from "@mui/material"
+import { Box, Button, Checkbox, FormControlLabel, FormGroup, Modal, TextField, Typography, CircularProgress } from "@mui/material"
 import { useFormik, Field, FormikProvider } from "formik"
 import { musicValidate } from '../../../validate/validate';
 import { useRouter } from "next/router";
@@ -232,7 +232,14 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                             </Button>
                             {
                                 loading ?
-                                <CircularProgress /> :
+                                <Button
+                                    variant="outlined"
+                                    type="submit"
+                                    color="success"
+                                    disabled
+                                >
+                                    <CircularProgress />
+                                </Button> :
                                 <Button
                                     variant="outlined"
                                     type="submit"
