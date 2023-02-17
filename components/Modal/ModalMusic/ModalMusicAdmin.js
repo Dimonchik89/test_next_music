@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, Modal, TextField, Typography, TextareaAutosize } from "@mui/material"
 import { useFormik, Field, FormikProvider } from "formik"
 import { musicValidate } from '../../../validate/validate';
@@ -31,6 +31,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
     const imgRef = useRef(null)
     const audioRef = useRef(null)
     const router = useRouter()
+    const [loading, setLoading] = useState(false)
 
     const query = router.query.page || 1
 
@@ -66,7 +67,9 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
             formData.append("img", values.img)
             formData.append("audio", values.audio)
             const response = await serverFunc(formData)
+            setLoading(true)
             if(response.status === 200) {
+                setLoading(false)
                 handleClose()
                 handleOpenAlert({status: response.status, text: response.statusText})
                 if(buttonTitle === "create") {
@@ -80,17 +83,12 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                     values.audio = response.data?.audio
                     values.img = response.data?.img
                 }
-                // fetchMusic(`/music?page=${query}`)
-                fetchMusic(`/music`)
+                fetchMusic(`/music?page=${query}`)
+                // fetchMusic(`/music`)
             } else {
+                setLoading(false)
                 handleClose()
                 handleOpenAlert({status: response.response.status, text: response.message})
-                // values.name = ""
-                // values.description = ""
-                // values.categoryId = []
-                // values.keywords = ""
-                // values.audio = null
-                // values.img = null
             }
         }
     })
