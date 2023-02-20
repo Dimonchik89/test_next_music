@@ -137,17 +137,17 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Admin)
 
 export async function getServerSideProps({req, res, query}) {
-    const responseChekRole = await fetch(`${process.env.BASE_URL}/user/auth`, {
+    const responseChekRole = await fetch(`https://musicserver1.herokuapp.com//user/auth`, {
         headers: {
         'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
         }
     })
   const checkRole = await responseChekRole.json()
 
-  const responseMusic = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams({...query}))
+  const responseMusic = await fetch(`https://musicserver1.herokuapp.com//music?` + new URLSearchParams({...query}))
   const music = await responseMusic.json()
 
-  const resposne = await fetch(`${process.env.BASE_URL}/category`)
+  const resposne = await fetch(`https://musicserver1.herokuapp.com//category`)
   const errorCode = await resposne.ok ? false : resposne.statusCode
   const categories = await resposne.json()
 
