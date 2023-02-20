@@ -48,7 +48,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
         },
         validate: categoryValidate,
         onSubmit: async (values) => {
-            etLoading(true)
+            setLoading(true)
             const formData = new FormData()
             formData.append("name", values.name.trim())
             formData.append("img", values.img)
