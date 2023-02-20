@@ -105,7 +105,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Category)
 
 export async function getServerSideProps() {
-    const resposne = await fetch(`https://musicserver1.herokuapp.com/category`)
+    const resposne = await fetch(`https://musicserver1.herokuapp.com/api/category`)
     const errorCode = await resposne.ok ? false : resposne.statusCode
     const categories = await resposne.json()
 

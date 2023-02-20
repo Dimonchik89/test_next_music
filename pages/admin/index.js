@@ -144,10 +144,10 @@ export async function getServerSideProps({req, res, query}) {
     })
   const checkRole = await responseChekRole.json()
 
-  const responseMusic = await fetch(`https://musicserver1.herokuapp.com//music?` + new URLSearchParams({...query}))
+  const responseMusic = await fetch(`https://musicserver1.herokuapp.com/api/music?` + new URLSearchParams({...query}))
   const music = await responseMusic.json()
 
-  const resposne = await fetch(`https://musicserver1.herokuapp.com//category`)
+  const resposne = await fetch(`https://musicserver1.herokuapp.com/api/category`)
 
   const errorCode = await resposne.ok ? false : resposne.statusCode
   const categories = await resposne.json()
