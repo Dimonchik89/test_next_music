@@ -7,10 +7,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { createStructuredSelector } from "reselect";
 import { searchValue, changeSearchValue } from '../../store/search';
+import { resetProgress } from "../../store/actualMusics";
 
 import search from "../../styles/search.module.scss";
 
-const Search = ({ hideHeaderPlayer, showPlayer, searchValue, changeSearchValue  }) => {
+const Search = ({ hideHeaderPlayer, showPlayer, searchValue, changeSearchValue, resetProgress }) => {
     const router = useRouter()
 
     const changeValue = (e) => {
@@ -22,6 +23,7 @@ const Search = ({ hideHeaderPlayer, showPlayer, searchValue, changeSearchValue  
         if(showPlayer) {
            hideHeaderPlayer() 
         }
+        resetProgress()  // test
         router.push({
             pathname: "/",
             query: {keywords: searchValue},
@@ -67,6 +69,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
     hideHeaderPlayer: bindActionCreators(hideHeaderPlayer, dispatch),
     changeSearchValue: bindActionCreators(changeSearchValue, dispatch),
+    resetProgress: bindActionCreators(resetProgress, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
