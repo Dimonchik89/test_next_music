@@ -137,7 +137,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Admin)
 
 export async function getServerSideProps({req, res, query}) {
-    const responseChekRole = await fetch(`https://musicserver1.herokuapp.com//user/auth`, {
+    const responseChekRole = await fetch(`https://musicserver1.herokuapp.com/api/user/auth`, {
         headers: {
         'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
         }

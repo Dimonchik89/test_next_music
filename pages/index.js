@@ -75,7 +75,7 @@ export async function getServerSideProps({req, res, query}) {
     serverAudio = await audioResponse.json()
   }  
 
-  const responseChekRole = await fetch(`https://musicserver1.herokuapp.com/user/auth`, {
+  const responseChekRole = await fetch(`https://musicserver1.herokuapp.com/api/user/auth`, {
     headers: {
       'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
     }
