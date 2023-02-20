@@ -70,6 +70,8 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
         setShowModalMusic(false)
     }
 
+    const keywordsString = music?.keywords.join(", ")
+
     const categoryContent = categoriesInSound?.map(item => item.name).join(", ")
 
     return (
@@ -125,7 +127,7 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                         component="p"
                         className={helper.text__capitalize}
                     >
-                        {music.keywords}
+                        {keywordsString}
                     </Typography>
                 </Box>
                 <Box className={admin.text__container}>
