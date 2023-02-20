@@ -148,7 +148,7 @@ export async function getServerSideProps({req, res, query}) {
   const music = await responseMusic.json()
 
   const resposne = await fetch(`https://musicserver1.herokuapp.com//category`)
-  
+
   const errorCode = await resposne.ok ? false : resposne.statusCode
   const categories = await resposne.json()
 
