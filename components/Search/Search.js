@@ -23,7 +23,7 @@ const Search = ({ hideHeaderPlayer, showPlayer, searchValue, changeSearchValue, 
         if(showPlayer) {
            hideHeaderPlayer() 
         }
-        resetProgress()  // test
+        // resetProgress()  // test
         router.push({
             pathname: "/",
             query: {keywords: searchValue},
