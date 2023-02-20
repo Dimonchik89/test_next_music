@@ -55,7 +55,7 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
 
 
 export async function getServerSideProps({req, res, query}) {
-  const categoryResponse = await fetch(`https://musicserver1.herokuapp.com/api/category`)
+  const categoryResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category`)
   const category = await categoryResponse.json()
   let serverAudio;
 
@@ -66,16 +66,16 @@ export async function getServerSideProps({req, res, query}) {
   })
 
   if(query.categoryId) {
-    const audioResponse = await fetch(`https://musicserver1.herokuapp.com/api/music?` + new URLSearchParams({...queryTail})) 
+    const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
     // const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
     serverAudio = await audioResponse.json()
   } else {
-    const audioResponse = await fetch(`https://musicserver1.herokuapp.com/api/music?` + new URLSearchParams({...queryTail})) 
+    const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
     // const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
     serverAudio = await audioResponse.json()
   }  
 
-  const responseChekRole = await fetch(`https://musicserver1.herokuapp.com/api/user/auth`, {
+  const responseChekRole = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/user/auth`, {
     headers: {
       'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
     }
