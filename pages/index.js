@@ -49,8 +49,8 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
     <>
       <Head>
           <title>TuneBox</title>
-          <meta name="keywords" content="tunebox,music,sound,free,download,track,chill,relax,sport,dark,epic,abstract"/>
-          <meta name="description" content="free original music"/>
+          <meta name="keywords" content="TuneBox,music,sound,free,download,track,chill,relax,sport,dark,epic,abstract"/>
+          <meta name="description" content="TuneBox"/>
           <meta charSet="urf-8"/>
           <link rel="apple-touch-icon" sizes="60x60" href="../static/favicon/favicon/apple-touch-icon.png"/>
           <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png"/>
