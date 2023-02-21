@@ -31,22 +31,15 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
         // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
         if(id) {
             showHeaderPlayer()
-            selectMusic(id)
+            // selectMusic(id)
         }
     }, [id])
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //             console.log("header content id", id);
-    //             console.log("header content music?.id", music?.id);
-    //         if(+id !== music?.id) {
-    //             selectMusic(id)
-    //         } 
-    //     }, 100)
-    //     // if(+id !== music?.id) {
-    //     //     selectMusic(id)
-    //     // }
-    // }, [actualMusics])
+    useEffect(() => {
+        if(+id !== music?.id) {
+            selectMusic(id)
+        }
+    }, [actualMusics])
 
     const showSearch = showPlayer ? null : <Search/> 
 
