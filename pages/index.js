@@ -44,15 +44,22 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
     }
   }, [])
 
-  // if(!serverAudio) {
-  //   return null
-  // }
-
   return (
     <>
+      <Head>
+          <title>TuneBox</title>
+          <meta name="keywords" content="tunebox,music,sound,free,download,track,chill,relax,sport,dark,epic,abstract"/>
+          <meta name="description" content="free original music"/>
+          <meta charSet="urf-8"/>
+          <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-touch-icon.png"/>
+          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"/>
+          <link rel="manifest" href="/static/favicon/site.webmanifest"/>
+          <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#5bbad5"/>
+          <meta name="msapplication-TileColor" content="#da532c"/>
+          <meta name="theme-color" content="#ffffff"/>
+      </Head>
       <Main/>
-      {/* <Link href="/admin">Admin</Link> */}
-      {/* <Link href="/register">Register</Link> */}
     </>
   )
 }
