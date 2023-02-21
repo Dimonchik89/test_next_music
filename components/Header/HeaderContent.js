@@ -8,7 +8,7 @@ import HeaderPlayer from './HeaderPlayer';
 import { showHeaderPlayer } from '../../store/player/playerSlice';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { useRouter } from 'next/router';
-import { selectMusic, actualMusics } from '../../store/actualMusics';
+import { selectMusic, actualMusics, music } from '../../store/actualMusics';
 
 import text from "../../styles/text.module.scss";
 import header from "../../styles/header.module.scss";
@@ -36,7 +36,7 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}
     }, [id])
 
     useEffect(() => {
-        if(id) {
+        if(id && music.id != id) {
             selectMusic(id)
         }
     }, [actualMusics])
