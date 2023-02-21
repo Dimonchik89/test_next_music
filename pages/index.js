@@ -51,7 +51,7 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
           <meta name="keywords" content="tunebox,music,sound,free,download,track,chill,relax,sport,dark,epic,abstract"/>
           <meta name="description" content="free original music"/>
           <meta charSet="urf-8"/>
-          <link rel="apple-touch-icon" sizes="60x60" href="../static/favicon/apple-touch-icon.png"/>
+          <link rel="apple-touch-icon" sizes="60x60" href="../static/favicon/favicon/apple-touch-icon.png"/>
           <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png"/>
           <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png"/>
           <link rel="manifest" href="../static/favicon/site.webmanifest"/>
