@@ -84,7 +84,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                         >
                             <CircularProgress/>
                         </Button> :
-                        <Button 
+                        <button 
                             variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled={ +allCount === actualMusics.length}
@@ -92,7 +92,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                             // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
                         >
                             Show more
-                        </Button>
+                        </button>
                     }
                 </Box>
                 <ModalSubscribe/>
