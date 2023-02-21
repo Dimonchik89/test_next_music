@@ -143,6 +143,13 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
     }
   }, [music?.play])
 
+  useEffect(() => {
+    if(router.query?.sound?.id) {
+      const id  = router.query.sound
+      selectMusic(id)
+    }
+  }, [])  ///////////////
+
   //--------------------------
 
   const musicTimer = (currentTime) => {
