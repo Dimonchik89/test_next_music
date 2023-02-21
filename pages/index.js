@@ -8,6 +8,7 @@ import { getCookie, setCookie } from 'cookies-next';
 import { addUser } from "../store/user/userSlice";
 import { selectMusics, changeCurrentPage, changeLimit } from "../store/actualMusics";
 import { changeSearchValue } from "../store/search";
+import Head from "next/head";
 
 import Link from "next/link";
 import styles from '../styles/Home.module.scss'
