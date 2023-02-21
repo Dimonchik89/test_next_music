@@ -34,7 +34,8 @@ const musicsSlice = createSlice({
     initialState,
     reducers: {
         selectMusics: (state, action) => {
-            state.actualMusics = action.payload.rows?.map(item => ({...item, progress: 0, play: false}));
+            // state.actualMusics = action.payload.rows?.map(item => ({...item, progress: 0, play: false}));
+            state.actualMusics = action.payload.rows?.map(item => ({...item, progress: state.actualMusics?.find(el => el.id === item.id)?.progress || 0, play: false}));
             state.allCount = action.payload.count;
         },
         togglePlay: (state, action) => {
