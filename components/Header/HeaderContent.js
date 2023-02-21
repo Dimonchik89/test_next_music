@@ -35,6 +35,8 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
     }, [id])
 
     useEffect(() => {
+        console.log("header content id", id);
+        console.log("header content music?.id", music?.id);
         if(+id !== music?.id) {
             selectMusic(id)
         }
