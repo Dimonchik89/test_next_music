@@ -77,20 +77,16 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                     {
                         loading ?
                         <button 
-                            // variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled
                             className={button.button__yellow__bold}
-                            // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px", width: "19.2rem", height: "5.2rem"}}
                         >
                             <CircularProgress/>
                         </button> :
                         <button 
-                            // variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled={ +allCount === actualMusics.length}
                             className={button.button__yellow__bold}
-                            // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
                         >
                             Show more
                         </button>
