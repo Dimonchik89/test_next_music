@@ -16,6 +16,7 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import {Button} from "@mui/material";
 
 import main from "../../styles/main.module.scss";
+import button from "../../styles/button.module.scss";
 
 const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incrementPage, currentPage, allCount, changeLimit, limit, actualMusics }) => {
     const router = useRouter()
@@ -78,7 +79,8 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                             variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled
-                            style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px", width: "19.2rem", height: "5.2rem"}}
+                            className={button.button__yellow__bold}
+                            // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px", width: "19.2rem", height: "5.2rem"}}
                         >
                             <CircularProgress/>
                         </Button> :
@@ -86,7 +88,8 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                             variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled={ +allCount === actualMusics.length}
-                            style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
+                            className={button.button__yellow__bold}
+                            // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px"}}
                         >
                             Show more
                         </Button>
