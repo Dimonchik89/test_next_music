@@ -19,13 +19,21 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}
     const router = useRouter()
     const id = router.query.sound
 
+    // useEffect(() => {
+    //     // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
+    //     if(id) {
+    //         showHeaderPlayer()
+    //         selectMusic(id)
+    //     }
+    // }, [id, actualMusics])
+
     useEffect(() => {
         // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
         if(id) {
             showHeaderPlayer()
             selectMusic(id)
         }
-    }, [id, actualMusics])
+    }, [id])
 
     const showSearch = showPlayer ? null : <Search/> 
 
