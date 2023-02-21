@@ -44,6 +44,10 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
     }
   }, [])
 
+  if(!serverAudio) {
+    return null
+  }
+
   return (
     <>
       <Main/>
