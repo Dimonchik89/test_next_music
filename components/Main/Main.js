@@ -55,6 +55,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
 
         fetchPaginationMusic(`music?${new URLSearchParams({...resultQuery, page: currentPage + 1, limit: process.env.NEXT_PUBLIC_SOUND_LIMIT})}`) //убрать лимит, он задан дефолтно на сервере
             .then(data => {
+                setLoading(false)
                 addMusic(data.payload)
             })
             .catch(e => {
@@ -75,17 +76,17 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                 >
                     {
                         loading ?
-                        <Button 
-                            variant="contained" 
+                        <button 
+                            // variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled
                             className={button.button__yellow__bold}
                             // style={{fontSize: "24px", backgroundColor: "#f2d22b", borderRadius: "20px", width: "19.2rem", height: "5.2rem"}}
                         >
                             <CircularProgress/>
-                        </Button> :
+                        </button> :
                         <button 
-                            variant="contained" 
+                            // variant="contained" 
                             onClick={handleDownloadMore} 
                             disabled={ +allCount === actualMusics.length}
                             className={button.button__yellow__bold}
