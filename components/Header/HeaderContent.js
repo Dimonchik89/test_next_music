@@ -35,6 +35,12 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}
         }
     }, [id])
 
+    useEffect(() => {
+        if(id) {
+            selectMusic(id)
+        }
+    }, [actualMusics])
+
     const showSearch = showPlayer ? null : <Search/> 
 
     const headContentStyle = showPlayer ? header.content_player : header.header__content;
