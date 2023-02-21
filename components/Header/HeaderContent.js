@@ -41,7 +41,7 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
             if(+id !== music?.id) {
                 selectMusic(id)
             }
-        }, 30)
+        }, 100)
         // if(+id !== music?.id) {
         //     selectMusic(id)
         // }
