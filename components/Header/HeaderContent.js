@@ -37,9 +37,11 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
     useEffect(() => {
         console.log("header content id", id);
         console.log("header content music?.id", music?.id);
-        if(+id !== music?.id) {
-            selectMusic(id)
-        }
+        setTimeout(() => {
+            if(+id !== music?.id) {
+                selectMusic(id)
+            }
+        }, 10)
     }, [actualMusics])
 
     const showSearch = showPlayer ? null : <Search/> 
