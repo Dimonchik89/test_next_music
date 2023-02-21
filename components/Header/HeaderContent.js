@@ -15,7 +15,7 @@ import header from "../../styles/header.module.scss";
 import helper from "../../styles/helper.module.scss";
 import search from "../../styles/search.module.scss";
 
-const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}) => {
+const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics, music}) => {
     const router = useRouter()
     const id = router.query.sound
 
@@ -31,9 +31,14 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}
         // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
         if(id) {
             showHeaderPlayer()
-            selectMusic(id)
         }
     }, [id])
+
+    useEffect(() => {
+        if(+id !== music.id) {
+            selectMusic(id)
+        }
+    }, [actualMusics])
 
     const showSearch = showPlayer ? null : <Search/> 
 
@@ -69,7 +74,8 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics}
 
 const mapStateToProps = createStructuredSelector({
     showPlayer,
-    actualMusics
+    actualMusics,
+    music
 })
 
 const mapDispatchToProps = dispatch => ({
