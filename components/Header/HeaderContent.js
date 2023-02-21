@@ -35,7 +35,7 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
     }, [id])
 
     useEffect(() => {
-        if(+id !== music.id) {
+        if(+id !== music?.id) {
             selectMusic(id)
         }
     }, [actualMusics])
