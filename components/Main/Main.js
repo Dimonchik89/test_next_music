@@ -86,7 +86,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                         <button 
                             onClick={handleDownloadMore} 
                             disabled={+allCount === actualMusics.length}
-                            className={+allCount !== actualMusics.length ? button.button__yellow__bold : border_gray_text_yellow}
+                            className={+allCount !== actualMusics.length ? button.button__yellow__bold : button.border_gray_text_yellow}
                         >
                             Show more
                         </button>
