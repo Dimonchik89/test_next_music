@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import HeaderHead from '../components/Header/HeaderHead';
 import Link from 'next/link';
 
@@ -11,8 +11,13 @@ const ErrorPage = () => {
         <Box className={error.page}>
             <HeaderHead/>
             <Box className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${error.inner}`}>
-                <Box className={helper.fz__24}>
-                    Something went wrong 
+                <Box>
+                    <Typography
+                        component="p"
+                        className={`${helper.fz__24} ${helper.color__white}`}
+                    >    
+                        Something went wrong 
+                    </Typography>
                     <Link 
                         href={"/"}
                         className={`${helper.color__yellow} ${helper.fz__24}`}
