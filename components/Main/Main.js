@@ -76,20 +76,20 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                 >
                     {
                         loading ?
-                        <button 
+                        <Button 
                             onClick={handleDownloadMore} 
                             disabled
                             className={button.button__yellow__bold}
                         >
                             <CircularProgress/>
-                        </button> :
-                        <button 
+                        </Button> :
+                        <Button 
                             onClick={handleDownloadMore} 
                             disabled={ +allCount === actualMusics.length}
                             className={button.button__yellow__bold}
                         >
                             Show more
-                        </button>
+                        </Button>
                     }
                 </Box>
                 <ModalSubscribe/>
