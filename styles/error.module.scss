@@ -11,4 +11,8 @@
 .page {
     background: url(../static/images/bg_sm.jpg) center / cover no-repeat;
     height: 100vh;
+
+    .inner {
+        height: 90vh;
+    }
 }
