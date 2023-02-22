@@ -13,7 +13,7 @@ const ErrorPage = () => {
             <Box className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${error.inner}`}>
                 <Box>
                     <Typography
-                        vatiant="h3"
+                        variant="h3"
                         component="p"
                         className={`${helper.fz__24} ${helper.color__white}`}
                     >    
