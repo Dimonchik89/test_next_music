@@ -11,7 +11,7 @@ const ErrorPage = () => {
         <Box className={error.page}>
             <HeaderHead/>
             <Box className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${error.inner}`}>
-                <Box>
+                <Box className={helper.text__center}>
                     <Typography
                         variant="h3"
                         component="p"
