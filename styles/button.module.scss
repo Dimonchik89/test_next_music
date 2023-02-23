@@ -37,6 +37,14 @@
     border: 2px solid $gray;
     border-radius: 2rem;
     cursor: pointer;
+
+    @include _375 {
+        width: 18.5rem;
+        height: 3.5rem;
+        border-radius: 1rem;
+
+        font-size: 2rem;
+    }
 }
 
 .border_gray_text_yellow {

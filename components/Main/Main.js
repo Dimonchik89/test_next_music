@@ -80,7 +80,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                             disabled
                             className={button.button__yellow__bold}
                         >
-                            <CircularProgress/>
+                            <CircularProgress size={window.screen.width <= 375 ? "small" : "large"}/>
                         </button> :
                         <button 
                             onClick={handleDownloadMore} 
