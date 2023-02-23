@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import {Button} from "@mui/material";
 
+import helper from "../../styles/helper.module.scss";
 import main from "../../styles/main.module.scss";
 import button from "../../styles/button.module.scss";
 
@@ -66,7 +67,10 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
     return (
         <Box className={main.main}>
             <Header/>
-            <Container maxWidth="xl">
+            <Container 
+                maxWidth="xl"
+                helper={helper.container}
+            >
                 {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>}
                 <Sound/>
                 <PagePagination pathname="/"/>

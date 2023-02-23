@@ -12,7 +12,10 @@ const Footer = () => {
 
     return (
         <Box className={footer.wrapper}>
-            <Container maxWidth="xl">
+            <Container 
+                maxWidth="xl"
+                helper={helper.container}
+            >
                 <FooterHead/>
                 <FooterIcons/>
                 <FooterBottom/>
