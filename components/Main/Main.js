@@ -69,7 +69,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
             <Header/>
             <Container 
                 maxWidth="md"
-                className={helper.container}
+                // className={helper.container}
             >
                 {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>}
                 <Sound/>
