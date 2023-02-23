@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container, CircularProgress, Box } from "@mui/material";
 import Header from "../Header/Header";
 import Carousel from "../Carousel/Carousel";
@@ -26,7 +26,6 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
         setLoading(true)
         changeLimit(limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT)
         incrementPage()
-        console.log("limit", limit);
         if(limit === process.env.NEXT_PUBLIC_SOUND_LIMIT) {
             router.push({
                 pathname: "/",
@@ -85,7 +84,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                         </button> :
                         <button 
                             onClick={handleDownloadMore} 
-                            disabled={+allCount === actualMusics.length}
+                            disabled={+allCount === actualMusics.length || +router.query.limit >= actualMusics.length}
                             className={+allCount !== actualMusics.length ? button.button__yellow__bold : button.border_gray_text_gray}
                         >
                             Show more
