@@ -69,8 +69,8 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
             <Container maxWidth="xl">
                 {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>}
                 <Sound/>
-                {/* <PagePagination pathname="/"/> */}
-                <Box
+                <PagePagination pathname="/"/>
+                {/* <Box
                     style={{display: "flex", justifyContent: "center", marginTop: "20px"}}
                 >
                     {
@@ -90,7 +90,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                             Show more
                         </button>
                     }
-                </Box>
+                </Box> */}
                 <ModalSubscribe/>
             </Container>
             <Footer/>

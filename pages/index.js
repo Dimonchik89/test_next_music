@@ -79,12 +79,12 @@ export async function getServerSideProps({req, res, query}) {
   })
 
   if(query.categoryId) {
-    const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
-    // const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
+    // const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
+    const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
     serverAudio = await audioResponse.json()
   } else {
-    const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
-    // const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
+    // const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
+    const audioResponse = await fetch(`${process.env.BASE_URL}/music?` + new URLSearchParams(query)) // пагинация с кнопками страниц
     serverAudio = await audioResponse.json()
   }  
 
