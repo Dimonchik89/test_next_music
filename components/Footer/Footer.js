@@ -14,7 +14,7 @@ const Footer = () => {
         <Box className={footer.wrapper}>
             <Container 
                 maxWidth="md"
-                helper={helper.container}
+                className={helper.container}
             >
                 <FooterHead/>
                 <FooterIcons/>
