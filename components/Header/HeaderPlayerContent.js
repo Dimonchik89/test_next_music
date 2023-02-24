@@ -37,15 +37,15 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
         <Image
             style={{marginBottom: '0.7rem'}}
             src="/static/icon/download-black.svg"
-            width={'20rem'}
-            height={'21rem'}
+            width={14}
+            height={15}
             alt="download"
         /> : 
         <Image
             style={{marginBottom: '0.7rem'}}
             src="/static/icon/download.svg"
-            width={'20rem'}
-            height={'21rem'}
+            width={14}
+            height={15}
             alt="download"
         />
 
