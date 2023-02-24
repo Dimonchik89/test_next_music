@@ -107,9 +107,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-image: url("../static/icon/download.svg");
-    background-repeat: no-repeat;
-    background-position: 9% 40%;
+    // background-image: url("../static/icon/download.svg");
+    // background-repeat: no-repeat;
+    // background-position: 9% 40%;
 
     @include _375 {
         width: 16.8rem;
@@ -123,10 +123,6 @@
         font-weight: 500;
         color: $white;
         margin-left: .8rem;
-    }
-
-    &:hover {
-        background-image: url("../static/icon/download-black.svg");
     }
 }
 
