@@ -117,7 +117,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
 
   useEffect(() => {
     // setTimerLeft(deltaTimerLeft + (headerMusic?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) || 5)
-    setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) || 4)
+    setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)
 
     if(music.play && music?.progress === duration) {
       togglePlay(music.id)

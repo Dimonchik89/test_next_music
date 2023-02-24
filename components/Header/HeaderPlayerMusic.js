@@ -47,7 +47,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
     }
 
     useEffect(() => {
-        setTimerLeft(1 + (music?.progress * (waveformRef.current?.scrollWidth / duration)) * 0.998)
+        setTimerLeft(1 + (music?.progress * (waveformRef.current?.scrollWidth / duration)) * 0.998 )
     }, [music?.progress])
 
     const handlePlay = () => {
