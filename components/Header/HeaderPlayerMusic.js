@@ -40,14 +40,14 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
     const wavesurfer = useRef(null);
     const [ intervalId, setIntervalId ] = useState(null)
     const [duration, setDuration] = useState(0)
-    const [ timerLeft, setTimerLeft] = useState(15)
+    const [ timerLeft, setTimerLeft] = useState(3)
 
     const handleChangeProgress = () => {
         changeProgress(wavesurfer?.current?.getCurrentTime())
     }
 
     useEffect(() => {
-        setTimerLeft(1 + (music?.progress * (waveformRef.current?.scrollWidth / duration)))
+        setTimerLeft(1 + (music?.progress * (waveformRef.current?.scrollWidth / duration)) * 0.998)
     }, [music?.progress])
 
     const handlePlay = () => {

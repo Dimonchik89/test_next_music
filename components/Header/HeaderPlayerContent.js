@@ -35,17 +35,17 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
     
     const downloadIcon = focusDownload ? 
         <Image
-            style={{marginBottom: '0.7rem'}}
+            style={{marginBottom: '7px'}}
             src="/static/icon/download-black.svg"
-            width={14}
-            height={15}
+            width={20}
+            height={21}
             alt="download"
         /> : 
         <Image
-            style={{marginBottom: '0.7rem'}}
+            style={{marginBottom: '7px'}}
             src="/static/icon/download.svg"
-            width={14}
-            height={15}
+            width={20}
+            height={21}
             alt="download"
         />
 
@@ -70,7 +70,7 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
                     onMouseEnter={() => setFocusDownload(true)}
                     onMouseLeave={() => setFocusDownload(false)}
                 >
-                    {/* {downloadIcon} */}
+                    {downloadIcon}
                     <p>
                         Download
                     </p>
