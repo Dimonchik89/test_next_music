@@ -104,8 +104,8 @@
 
     .picture {
         display: block;
-        width: 310px;
-        height: 310px;
+        width: 31rem;
+        height: 31rem;
         border-radius: 1rem;
         object-fit: cover;
 
@@ -116,6 +116,9 @@
 
         .logo {
             border-radius: 1rem;
+            width: 31rem;
+            height: 31rem;
+            object-fit: cover;
 
             @include _375 {
                 width: 100%;
