@@ -35,17 +35,17 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
     
     const downloadIcon = focusDownload ? 
         <Image
-            style={{marginBottom: '7px'}}
+            style={{marginBottom: '0.7rem'}}
             src="/static/icon/download-black.svg"
-            width={20}
-            height={21}
+            width={'20rem'}
+            height={'21rem'}
             alt="download"
         /> : 
         <Image
-            style={{marginBottom: '7px'}}
+            style={{marginBottom: '0.7rem'}}
             src="/static/icon/download.svg"
-            width={20}
-            height={21}
+            width={'20rem'}
+            height={'21rem'}
             alt="download"
         />
 
