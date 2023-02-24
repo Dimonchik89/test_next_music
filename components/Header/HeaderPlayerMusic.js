@@ -47,7 +47,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
     }
 
     useEffect(() => {
-        setTimerLeft(18 + (music?.progress * (waveformRef.current?.scrollWidth / duration)))
+        setTimerLeft(13 + (music?.progress * (waveformRef.current?.scrollWidth / duration)))
     }, [music?.progress])
 
     const handlePlay = () => {
@@ -142,7 +142,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
         }
     }
 
-    const marginLeft = window.screen.width <= 375 ? 7 : 35
+    const marginLeft = window.screen.width <= 375 ? 7 : 38
 
     return (
         <Box className={header.player__music__wrapper}>

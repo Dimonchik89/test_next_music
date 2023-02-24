@@ -70,7 +70,7 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
                     onMouseEnter={() => setFocusDownload(true)}
                     onMouseLeave={() => setFocusDownload(false)}
                 >
-                    {downloadIcon}
+                    {/* {downloadIcon} */}
                     <p>
                         Download
                     </p>
