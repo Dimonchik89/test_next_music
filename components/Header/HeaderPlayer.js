@@ -45,7 +45,10 @@ const HeaderPlayer = ({music, hideHeaderPlayer, stopMusic}) => {
         <Box
             className={header.player}
         >
-            <Container maxWidth="sm">
+            <Container 
+                maxWidth="md"
+                className={helper.container}
+            >
                 <Box>
                     <Box className={`${header.player__wrapper}`}>
                         <HeaderPlayerLogo logoPath={music?.img}/>
