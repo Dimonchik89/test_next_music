@@ -142,7 +142,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
         }
     }
 
-    const marginLeft = window.screen.width <= 375 ? 7 : 48
+    const marginLeft = window.screen.width <= 375 ? 7 : 35
 
     return (
         <Box className={header.player__music__wrapper}>
