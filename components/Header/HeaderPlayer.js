@@ -10,9 +10,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useRouter } from "next/router"
 import { hideHeaderPlayer } from "../../store/player/playerSlice";
 import { bindActionCreators } from "@reduxjs/toolkit";
-
-import header from "../../styles/header.module.scss"
 import { IconButton } from "@mui/material";
+
+import helper from "../../styles/helper.module.scss"
+import header from "../../styles/header.module.scss"
 
 const HeaderPlayer = ({music, hideHeaderPlayer, stopMusic}) => {
     const [ focusDownload, setFocusDownload ] = useState(false)
@@ -44,7 +45,7 @@ const HeaderPlayer = ({music, hideHeaderPlayer, stopMusic}) => {
         <Box
             className={header.player}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="md">
                 <Box>
                     <Box className={`${header.player__wrapper}`}>
                         <HeaderPlayerLogo logoPath={music?.img}/>
