@@ -17,15 +17,16 @@ const FooterBottom = () => {
                 >
                     Got a Claim? Fix it
                 </Link>
+                <Box className={footer.bottom__logo}></Box>
             </Box>
-            <Box className={footer.bottom__logo}>
-                {/* <picture>
+            {/* <Box className={footer.bottom__logo}>
+                <picture>
                     <img
                         className={footer.logo}
                         src={"../../static/images/Logo_sm.png"}
                     />
-                </picture> */}
-            </Box>
+                </picture> 
+            </Box> */}
         </Box>
     )
 }

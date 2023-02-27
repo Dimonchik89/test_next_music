@@ -15,9 +15,14 @@ const Footer = () => {
                 maxWidth="md"
                 className={helper.container}
             >
-                <FooterHead/>
+                <Box className={`${helper.d__flex} ${helper.direction__column} ${helper.space__between}`}>
+                    <FooterHead/>
+                    <FooterIcons/>
+                    <FooterBottom/>
+                </Box>
+                {/* <FooterHead/>
                 <FooterIcons/>
-                <FooterBottom/>
+                <FooterBottom/> */}
             </Container>
         </Box>
     )
