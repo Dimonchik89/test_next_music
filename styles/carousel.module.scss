@@ -7,11 +7,16 @@
     border: 1px solid $white;
     border-radius: 2rem;
     position: absolute;
-    top: 50px;
+    top: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 
 .carousel__wrapper {

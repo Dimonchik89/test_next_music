@@ -42,7 +42,9 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
             { showPlayer 
                 ? <HeaderPlayer/> 
                 : <Container maxWidth="xl">
-                    <Box className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${helper.direction__column} ${helper.container}`}>
+                    <Box 
+                        className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${helper.direction__column} ${helper.container} ${helper.margin__auto}`}
+                    >
                         <h1
                             className={text.title}
                         >
