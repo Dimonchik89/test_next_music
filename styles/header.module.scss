@@ -4,52 +4,6 @@
 .header {
     backdrop-filter: blur(34px);
 
-    // .header__inner {
-    //     width: 100%;
-    //     position: relative;
-
-    //     &::after {
-    //         content: "";
-    //         width: 48.6rem;
-    //         height: 2px;
-    //         background: $white;
-    //         position: absolute;
-    //         top: 100%;
-    //         left: 50%;
-    //         transform: translateX(-50%);
-
-    //         @include _375 {
-    //             width: 34.3rem;
-    //             height: 1px;
-    //         }
-    //     }
-
-    //     .header__song__on {
-    //         padding: 1.9rem 3rem 4.1rem 2.5rem;
-    //     }
-
-    //     .header__song__off {
-    //         padding: 1.9rem 3rem 0 2.5rem;
-    //     }
-
-    //     .header__item {
-    //         display: flex;
-    //         align-items: center;
-    //         justify-content: space-between;
-
-    //         @include _375 {
-    //             padding: 1.5rem .4rem 1.3rem .4rem;
-    //         }
-
-    //         .header__button {
-
-    //             @include _375 {
-    //                 display: none;
-    //             }
-    //         }
-    //     }
-    // }
-
     .header__content {
         padding: 8.4rem 0 3.1rem;
         position: relative;
@@ -409,6 +363,7 @@
             }
 
             .header__button {
+                opacity: 0;
 
                 @include _375 {
                     display: none;

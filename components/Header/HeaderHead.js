@@ -44,11 +44,12 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
                     />
                 </picture>
                 {search}
-                {/* <button
+                <button
                     className={`${button.border_gray_text_yellow} ${header.header__button}`}
+                    // opacity: 0
                 >
                     Pro Catalog
-                </button> */}
+                </button>
                 <HeaderMobile 
                     toggleMobileMenu={toggleMobileMenu} 
                     toggleMobileSearch={toggleMobileSearch}
