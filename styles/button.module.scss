@@ -68,6 +68,7 @@
     background: url("../static/icon/play-white.svg");
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    background-size: 1.5rem 1.5rem;
     cursor: pointer;
 
     &:hover {
@@ -75,6 +76,7 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-color: $yellow;
+        background-size: 1.5rem 1.5rem;
         border: 2px solid $yellow;
     }
 }
@@ -87,6 +89,7 @@
     background: url("../static/icon/pause-white.svg");
     background-repeat: no-repeat;
     background-position: 48% 50%;
+    background-size: 1.5rem 1.5rem;
     cursor: pointer;
 
     &:hover {
@@ -94,6 +97,7 @@
         background-repeat: no-repeat;
         background-position: 48% 50%;
         background-color: $yellow;
+        background-size: 1.5rem 1.5rem;
         border: 2px solid $yellow;
     }
 }
