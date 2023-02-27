@@ -30,7 +30,7 @@ const SoundHead = ({music, handleOpenModal, setSongIsDownloading, selectMusic, s
             )
             selectMusic(music.id)
         }
-        showHeaderPlayer()
+        // showHeaderPlayer()
     }
 
     const changeButton = () => {
