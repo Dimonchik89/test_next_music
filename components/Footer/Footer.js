@@ -5,7 +5,6 @@ import FooterBottom from "./FooterBottom";
 
 import footer from "../../styles/footer.module.scss";
 import helper from '../../styles/helper.module.scss';
-import text from "../../styles/text.module.scss";
 
 
 const Footer = () => {

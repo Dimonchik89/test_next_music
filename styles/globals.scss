@@ -68,13 +68,17 @@ a {
 
 .MuiPaginationItem-root {
   color: $white !important;
-  font-size: 1.4rem !important;
+  font-size: 1.8rem !important;
   border: 1px solid $white !important;
 
   &.Mui-selected {
     color: $yellow !important;
     border: 1px solid $yellow !important;
   }
+}
+
+.MuiPaginationItem-icon {
+  font-size: 1.8rem;
 }
 
 #nprogress .bar {
