@@ -19,7 +19,7 @@ const ModalSubscribeHeader = () => {
             />
             <Box className={modal.title__wrapper}>
                 <p className={modal.title}>
-                    Protect you video and release copyright claim
+                    Few steps to protect you video and release copyright claim
                 </p>
             </Box>
         </Box>
