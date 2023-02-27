@@ -8,13 +8,30 @@ import { downloadMusic } from "../../api/downloadApi";
 import { setSongIsDownloading } from "../../store/actualMusics";
 import { selectMusic } from "../../store/actualMusics";
 import { showHeaderPlayer } from "../../store/player";
+import { music } from "../../store/actualMusics";
+import { createStructuredSelector } from 'reselect';
+import { useRouter } from "next/router";
 
 import helper from "../../styles/helper.module.scss";
 import sound from "../../styles/sound.module.scss";
 
 
-const SoundHead = ({music, handleOpenModal, setSongIsDownloading}) => {
+const SoundHead = ({music, handleOpenModal, setSongIsDownloading, selectMusic, showHeaderPlayer, headerMusic}) => {
     const [ activeButton, setActiveButton ] = useState(false)
+    const router = useRouter();
+
+    const handleShowPlayer = () => {
+        if(music.id != headerMusic?.id) {
+            router.push({ 
+            pathname: '/', 
+            query: { ...router.query, sound: music.id } }, 
+            undefined, 
+            {scroll: false, shallow: true}
+            )
+            selectMusic(music.id)
+        }
+        showHeaderPlayer()
+    }
 
     const changeButton = () => {
         setActiveButton(prev => !prev)
@@ -41,7 +58,10 @@ const SoundHead = ({music, handleOpenModal, setSongIsDownloading}) => {
 
     return (
         <Box className={sound.head}>
-            <span className={sound.title}>
+            <span 
+                className={sound.title}
+                onClick={handleShowPlayer}
+            >
                {music?.name}
                
             </span>
@@ -64,10 +84,15 @@ const SoundHead = ({music, handleOpenModal, setSongIsDownloading}) => {
     )
 }
 
-const mapDispatchToProps = dispatch => ({
-    handleOpenModal: bindActionCreators(handleOpenModal, dispatch),
-    setSongIsDownloading: bindActionCreators(setSongIsDownloading, dispatch)
-
+const mapStateToProps = createStructuredSelector({
+    headerMusic: music
 })
 
-export default connect(null, mapDispatchToProps)(SoundHead);
+const mapDispatchToProps = dispatch => ({
+    handleOpenModal: bindActionCreators(handleOpenModal, dispatch),
+    setSongIsDownloading: bindActionCreators(setSongIsDownloading, dispatch),
+    selectMusic: bindActionCreators(selectMusic, dispatch),
+    showHeaderPlayer: bindActionCreators(showHeaderPlayer, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SoundHead);

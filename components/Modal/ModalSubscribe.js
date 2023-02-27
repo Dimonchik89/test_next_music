@@ -35,10 +35,6 @@ const ModalSubscribe = ({showModal, handleCloseModal}) => {
             // hideBackdrop
             open={showModal}
             onClose={handleCloseModal}
-            aria-labelledby="parent-modal-title"
-            aria-describedby="parent-modal-description"
-            aria-hidden="true"
-            disableBackdropClick
         >
             <Box 
                 className={modal.container}    
