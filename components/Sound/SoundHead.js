@@ -6,7 +6,8 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import { connect } from "react-redux";
 import { downloadMusic } from "../../api/downloadApi";
 import { setSongIsDownloading } from "../../store/actualMusics";
-
+import { selectMusic } from "../../store/actualMusics";
+import { showHeaderPlayer } from "../../store/player";
 
 import helper from "../../styles/helper.module.scss";
 import sound from "../../styles/sound.module.scss";

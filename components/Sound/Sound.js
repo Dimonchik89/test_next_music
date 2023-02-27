@@ -1,13 +1,12 @@
-import { useEffect, useState, useCallback, useMemo } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SoundItem from "./SoundItem";
 import { useRouter } from 'next/router';
 import { selectMusics, actualMusics, loading } from "../../store/actualMusics";
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators } from "@reduxjs/toolkit";
-import useHttp from "../../hooks/useHttp";
 
+import helper from "../../styles/helper.module.scss"
 import sound from "../../styles/sound.module.scss";
 
 const Sound = ({actualMusics, selectMusics, loading}) => {
@@ -22,6 +21,15 @@ const Sound = ({actualMusics, selectMusics, loading}) => {
     return (
         <Box className={sound.container}>
             <Box className={sound.wrapper}>
+                <Typography
+                    textAlign="center"
+                    variant="h3"
+                    component="h3"
+                    sx={{padding: '4rem 0 4rem'}}
+                    className={`${helper.color__white} ${helper.text__capitalize} ${helper.fw__medium}`}
+                >
+                    New Releases
+                </Typography>
                 {content}
             </Box>
         </Box>

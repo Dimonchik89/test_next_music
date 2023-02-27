@@ -1,13 +1,25 @@
-import { Container, Box } from "@mui/system";
+import { useState } from "react";
+// import { Container, Box } from "@mui/system";
 import FooterHead from "./FooterHead";
 import FooterIcons from "./FooterIcons";
 import FooterBottom from "./FooterBottom";
+import { Modal, Typography, Container, Box } from "@mui/material";
 
 import footer from "../../styles/footer.module.scss";
 import helper from '../../styles/helper.module.scss';
-
+import modal from "../../styles/modal.module.scss";
+import ModalSubscribe from '../Modal/ModalSubscribe';
 
 const Footer = () => {
+    const [showModal, setShowModal] = useState(false)
+
+    const handleShowModal = () => {
+        setShowModal(true)
+    }
+
+    const handleCloseModal = () => {
+        setShowModal(false)
+    }
 
     return (
         <Box className={footer.wrapper}>
@@ -18,12 +30,19 @@ const Footer = () => {
                 <Box className={`${helper.d__flex} ${helper.direction__column} ${helper.space__between}`}>
                     <FooterHead/>
                     <FooterIcons/>
-                    <FooterBottom/>
+                    <FooterBottom handleShowModal={handleShowModal}/>
                 </Box>
-                {/* <FooterHead/>
-                <FooterIcons/>
-                <FooterBottom/> */}
             </Container>
+            <Modal
+                open={showModal}
+                onClose={handleCloseModal}
+            >
+                <Box 
+                    className={modal.container}    
+                >
+                    LOREM
+                </Box>
+            </Modal>
         </Box>
     )
 }

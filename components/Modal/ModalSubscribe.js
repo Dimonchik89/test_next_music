@@ -11,7 +11,6 @@ import ModalYoutubeSubscribe from "./ModalYoutubeSubscribe";
 import ModalYoutubeComment from "./ModalYoutubeComment";
 import ModalYoutubeLink from "./ModalYoutubeLink";
 
-import helper from "../../styles/helper.module.scss"
 import modal from "../../styles/modal.module.scss"
 import button from "../../styles/button.module.scss"
 
@@ -33,9 +32,13 @@ const ModalSubscribe = ({showModal, handleCloseModal}) => {
 
     return (
         <Modal
-            hideBackdrop
+            // hideBackdrop
             open={showModal}
             onClose={handleCloseModal}
+            aria-labelledby="parent-modal-title"
+            aria-describedby="parent-modal-description"
+            aria-hidden="true"
+            disableBackdropClick
         >
             <Box 
                 className={modal.container}    
