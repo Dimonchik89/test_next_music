@@ -94,7 +94,7 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                     <Typography
                         variant="h5"
                         component="span"
-                        className={helper.text__capitalize}
+                        className={`${helper.text__capitalize} ${helper.fz__24}`}
                     >
                         {music.name}
                     </Typography>
@@ -103,13 +103,14 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                     <Typography
                         variant="h4"
                         component="h4"
-                        className={helper.text__capitalize}
+                        className={`${helper.text__capitalize} ${helper.fz__16}`}
                     >
                         Description:
                     </Typography>
                     <Typography
                         variant="h5"
                         component="p"
+                        className={helper.fz__16}
                     >
                         {music.description}
                     </Typography>
@@ -125,7 +126,7 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                     <Typography
                         variant="h5"
                         component="p"
-                        className={helper.text__capitalize}
+                        className={`${helper.text__capitalize} ${helper.fz__16}`}
                     >
                         {keywordsString}
                     </Typography>
@@ -141,7 +142,7 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                     <Typography
                         variant="h5"
                         component="p"
-                        className={helper.text__capitalize}
+                        className={`${helper.text__capitalize} ${helper.fz__16}`}
                     >
                         {categoryContent}
                     </Typography>
@@ -151,14 +152,19 @@ const AdminMusicItem = ({music, allCategory, deleteMusic, fetchMusic, allCount})
                     controls
                     src={`${process.env.NEXT_PUBLIC_IMG_URL}${music.audio}`}
                 />
-                <Box style={{padding: "0 .5rem"}}>
+                <Box 
+                    style={{padding: "0 .5rem"}}
+                    className={`${helper.d__flex} ${helper.direction__column}`}
+                >
                     <Button
                         variant="outlined"
+                        className={helper.fz__16}
                         onClick={handleOpenModalMusic}
                     >
                         Update
                     </Button>
                     <Button
+                        className={helper.fz__16}
                         variant="outlined"
                         color="error"
                         onClick={handleDelete}
