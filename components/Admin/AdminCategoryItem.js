@@ -8,6 +8,7 @@ import ErrorModal from "../Modal/ErrorModal";
 import AlertMessage from '../AlertMessage/AlertMessage';
 import ModalCategoryAdmin from "../Modal/ModalCategory/ModalCategoryAdmin";
 
+import helper from "../../styles/helper.module.scss"
 import admin from "../../styles/admin.module.scss";
 
 const AdminCategoryItem = ({category, removeCategory}) => {
@@ -73,6 +74,7 @@ const AdminCategoryItem = ({category, removeCategory}) => {
                     <Button 
                         variant="outlined"
                         onClick={handleOpenUpdateModal}
+                        className={helper.fz__16}
                     >
                         Update
                     </Button>
@@ -80,6 +82,7 @@ const AdminCategoryItem = ({category, removeCategory}) => {
                 <Button 
                     variant="outlined"
                     color="error"
+                    className={helper.fz__16}
                     onClick={deleteCategory}
                 >
                     Delete

@@ -17,7 +17,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  height: 500,
+  height: 550,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -81,7 +81,13 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
             onClose={handleClose}
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h4" component="h2" textAlign="center">
+                <Typography 
+                    id="modal-modal-title" 
+                    variant="h4" 
+                    component="h2" 
+                    textAlign="center"
+                    className={helper.fz__24}
+                >
                     Create category
                 </Typography>
                 <Box>
@@ -128,6 +134,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                         <Box className={`${helper.d__flex} ${helper.space__between}`}>
                             <Button
                                 variant="outlined"
+                                className={helper.fz__16}
                                 onClick={() => file.current.click()}
                             >
                                 Select Photo
@@ -146,6 +153,7 @@ const ModalCategoryAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgV
                                     variant="outlined"
                                     type="submit"
                                     color="success"
+                                    className={helper.fz__16}
                                 >
                                     {buttonTitle}
                                 </Button>

@@ -59,22 +59,24 @@ const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
     return (
         <> 
             <AdminHeader/>
-            <Box 
-                className={helper.text__center}
-                style={{marginTop: "2rem"}}    
-            >
-                <Button 
-                    variant="outlined"
-                    onClick={handleOpen}    
+            <Box className={admin.container}>
+                <Box 
+                    className={helper.text__center}
                 >
-                    Create category
-                </Button>
-            </Box>
-            <Container className={admin.category__container}>
-                <Box className={admin.category__wrapper}>
-                    {content}
+                    <Button 
+                        variant="outlined"
+                        onClick={handleOpen}  
+                        className={helper.fz__16}
+                    >
+                        Create category
+                    </Button>
                 </Box>
-            </Container>
+                <Container className={admin.category__container}>
+                    <Box className={admin.category__wrapper}>
+                        {content}
+                    </Box>
+                </Container>
+            </Box>
             <ModalCategoryAdmin
                 open={showModal} 
                 handleClose={handleClose} 
