@@ -12,8 +12,8 @@ import AlertMessage from "../../components/AlertMessage/AlertMessage"
 import ModalCategoryAdmin from "../../components/Modal/ModalCategory/ModalCategoryAdmin"
 import useHttp from "../../hooks/useHttp"
 
-import admin from "../../styles/admin.module.scss"
 import helper from "../../styles/helper.module.scss"
+import admin from "../../styles/admin.module.scss"
 
 const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
     const [showModal, setShowModal] = useState(false)
@@ -67,6 +67,7 @@ const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
                         variant="outlined"
                         onClick={handleOpen}  
                         className={helper.fz__16}
+                        size="large"
                     >
                         Create category
                     </Button>

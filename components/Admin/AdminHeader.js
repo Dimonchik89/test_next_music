@@ -25,18 +25,6 @@ const AdminHeader = () => {
                     >
                         Category
                     </span>
-                    {/* <Typography 
-                        className={admin.header__item}
-                        onClick={() => router.push('/admin')}
-                    >
-                        Music
-                    </Typography>
-                    <Typography 
-                        className={admin.header__item}
-                        onClick={() => router.push('/admin/category')}
-                    >
-                        Category
-                    </Typography> */}
                 </Toolbar>
             </AppBar>
         </Box>
