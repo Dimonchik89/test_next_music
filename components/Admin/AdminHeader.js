@@ -13,7 +13,19 @@ const AdminHeader = () => {
                     variant="dense"
                     sx={{display: "flex", justifyContent: "center"}}    
                 >
-                    <Typography 
+                    <span
+                        className={admin.header__item}
+                        onClick={() => router.push('/admin')}
+                    >
+                        Music
+                    </span>
+                    <span
+                        className={admin.header__item}
+                        onClick={() => router.push('/admin/category')}
+                    >
+                        Category
+                    </span>
+                    {/* <Typography 
                         className={admin.header__item}
                         onClick={() => router.push('/admin')}
                     >
@@ -24,7 +36,7 @@ const AdminHeader = () => {
                         onClick={() => router.push('/admin/category')}
                     >
                         Category
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
             </AppBar>
         </Box>
