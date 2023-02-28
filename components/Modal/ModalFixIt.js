@@ -74,12 +74,12 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
                                     maxRows={10}
                                 />
                                 <Box className={`${helper.d__flex} ${helper.justify__center} ${modal.form__button__wrapper}`}>
-                                    <Button 
+                                    <button 
                                         className={button.button__yellow__bold}
                                         type="submit"
                                     >
                                         Send
-                                    </Button>
+                                    </button>
                                 </Box>
                             </form>
 
