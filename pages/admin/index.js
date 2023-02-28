@@ -16,6 +16,7 @@ import ModalMusicAdmin from "../../components/Modal/ModalMusic/ModalMusicAdmin";
 import useHttp from "../../hooks/useHttp";
 import AlertMessage from '../../components/AlertMessage/AlertMessage';
 import PagePagination from "../../components/PagePagination/PagePagination";
+import { Home } from "../index";
 
 import admin from "../../styles/admin.module.scss";
 import pagination from "../../styles/pagination.module.scss";
@@ -136,21 +137,56 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin)
 
-export async function getServerSideProps({req, res, query}) {
+// export async function getServerSideProps({req, res, query}) {
+//     const responseChekRole = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/user/auth`, {
+//         headers: {
+//         'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
+//         }
+//     })
+//   const checkRole = await responseChekRole.json()
+
+//   const responseMusic = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...query}))
+//   const music = await responseMusic.json()
+
+//   const resposne = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category`)
+
+//   const errorCode = await resposne.ok ? false : resposne.statusCode
+//   const categories = await resposne.json()
+
+//   return {
+//     props: {
+//         checkRole,
+//         music,
+//         categories
+//     }
+//   }
+// }
+
+export async function getServerSideProps(appContext) {
+    const {req, res, query} = appContext
     const responseChekRole = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/user/auth`, {
         headers: {
         'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('token', { req, res })}`))}`
         }
     })
-  const checkRole = await responseChekRole.json()
+    const checkRole = await responseChekRole.json()
 
-  const responseMusic = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...query}))
-  const music = await responseMusic.json()
+    const responseMusic = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...query}))
+    const music = await responseMusic.json()
 
-  const resposne = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category`)
+    const resposne = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category`)
 
-  const errorCode = await resposne.ok ? false : resposne.statusCode
-  const categories = await resposne.json()
+    const errorCode = await resposne.ok ? false : resposne.statusCode
+    const categories = await resposne.json()
+    
+    if(checkRole.role != "ADMIN") {
+        return {
+            redirect: {
+                permanent: false,
+                destination: '/'
+            }
+        }
+    }
 
   return {
     props: {
