@@ -1,18 +1,19 @@
 import { Box } from "@mui/material"
 import Image from "next/image";
-import Link from "next/link";
 import Share from "../Share/Share";
 import { downloadMusic } from "../../api/downloadApi";
 import { handleOpenModal } from "../../store/modal";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { connect } from "react-redux";
+import { setSongIsDownloading } from "../../store/actualMusics";
+import useMusic from "../../hooks/useMusic";
 
 import helper from "../../styles/helper.module.scss"
 import header from "../../styles/header.module.scss"
 import button from "../../styles/button.module.scss"
-import sound from "../../styles/sound.module.scss";
 
-const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButton, focusDownload, handleOpenModal}) => {
+const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButton, focusDownload, handleOpenModal, setSongIsDownloading}) => {
+    const { handleDownload } = useMusic()
     const headerStyle = {
         right: '-2rem',
         borderRadius: "2rem"
@@ -49,6 +50,13 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
             alt="download"
         />
 
+    // если хук работает правельно убрать импорты функция, удалить их из mapDispatchToPtops и Props-ов
+    // const handleDownload = (e) => {
+    //     setSongIsDownloading(music)
+    //     handleOpenModal()
+    //     downloadMusic({e, music})
+    // }
+
     return (
         <>
         
@@ -63,10 +71,8 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
             <Box className={header.button__group}>
                 <button 
                     className={`${button.header__download} ${downloadStyle}`} 
-                    onClick={(e) => {
-                        handleOpenModal()
-                        downloadMusic({e, music})
-                    }}
+                    // onClick={handleDownload}
+                    onClick={e => handleDownload(e, music)}
                     onMouseEnter={() => setFocusDownload(true)}
                     onMouseLeave={() => setFocusDownload(false)}
                 >
@@ -86,7 +92,8 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
 }
 
 const mapDispatchToProps = dispatch => ({
-    handleOpenModal: bindActionCreators(handleOpenModal, dispatch)
+    handleOpenModal: bindActionCreators(handleOpenModal, dispatch),
+    setSongIsDownloading: bindActionCreators(setSongIsDownloading, dispatch)
 })
 
 export default connect(null, mapDispatchToProps)(HeaderPlayerContent)

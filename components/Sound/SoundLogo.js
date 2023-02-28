@@ -13,17 +13,13 @@ const SoundLogo = ({iconPath, music, selectMusic, showHeaderPlayer, headerMusic}
     const router = useRouter();
 
     const handleShowPlayer = () => {
-        console.log("music.id", music.id);
-        console.log("headerMusic?.id", headerMusic?.id);
-        if(music.id != headerMusic?.id) {
-            router.push({ 
+        router.push({ 
                 pathname: '/', 
                 query: { ...router.query, sound: music.id } }, 
                 undefined, 
                 {scroll: false, shallow: true}
             )
-            selectMusic(music.id)
-        }
+        selectMusic(music.id)
         // showHeaderPlayer()
     }
 

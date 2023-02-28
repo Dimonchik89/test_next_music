@@ -11,6 +11,7 @@ import { showHeaderPlayer } from "../../store/player";
 import { music } from "../../store/actualMusics";
 import { createStructuredSelector } from 'reselect';
 import { useRouter } from "next/router";
+import useMusic from "../../hooks/useMusic";
 
 import helper from "../../styles/helper.module.scss";
 import sound from "../../styles/sound.module.scss";
@@ -19,29 +20,28 @@ import sound from "../../styles/sound.module.scss";
 const SoundHead = ({music, handleOpenModal, setSongIsDownloading, selectMusic, showHeaderPlayer, headerMusic}) => {
     const [ activeButton, setActiveButton ] = useState(false)
     const router = useRouter();
+    const { handleDownload } = useMusic()
 
     const handleShowPlayer = () => {
-        if(music.id != headerMusic?.id) {
-            router.push({ 
+        router.push({ 
             pathname: '/', 
             query: { ...router.query, sound: music.id } }, 
             undefined, 
             {scroll: false, shallow: true}
             )
             selectMusic(music.id)
-        }
-        // showHeaderPlayer()
     }
 
     const changeButton = () => {
         setActiveButton(prev => !prev)
     }
 
-    const handleDownload = (e) => {
-        setSongIsDownloading(music)
-        handleOpenModal()
-        downloadMusic({e, music})
-    }
+    // если хук работает правельно убрать импорты функция, удалить их из mapDispatchToPtops и Props-ов
+    // const handleDownload = (e) => {
+    //     setSongIsDownloading(music)
+    //     handleOpenModal()
+    //     downloadMusic({e, music})
+    // }
 
     const showButton = activeButton ? 
         <div className={sound.button__close_wrapper}>
@@ -73,7 +73,8 @@ const SoundHead = ({music, handleOpenModal, setSongIsDownloading, selectMusic, s
                     className={`${sound.button__text}`} 
                     download
                     target="_blank"
-                    onClick={handleDownload}  
+                    // onClick={handleDownload}  
+                    onClick={(e) => handleDownload(e, music)}  
                 >
                     <p className={sound.text__inner}>
                         Download
