@@ -67,7 +67,7 @@ const Category = ({categories, errorCode, addAllCategory, allCategory}) => {
                         variant="outlined"
                         onClick={handleOpen}  
                         className={helper.fz__16}
-                        size="large"
+                        size="30"
                     >
                         Create category
                     </Button>
