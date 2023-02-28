@@ -14,18 +14,12 @@ const AdminHeader = () => {
                     sx={{display: "flex", justifyContent: "center"}}    
                 >
                     <Typography 
-                        variant="h6" 
-                        color="inherit" 
-                        component="div"
                         className={admin.header__item}
                         onClick={() => router.push('/admin')}
                     >
                         Music
                     </Typography>
                     <Typography 
-                        variant="h6" 
-                        color="inherit" 
-                        component="div"
                         className={admin.header__item}
                         onClick={() => router.push('/admin/category')}
                     >
