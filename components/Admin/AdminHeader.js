@@ -1,6 +1,8 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 
+import admin from "../../styles/admin.module.scss";
+
 const AdminHeader = () => {
     const router = useRouter()
 
@@ -15,7 +17,7 @@ const AdminHeader = () => {
                         variant="h6" 
                         color="inherit" 
                         component="div"
-                        sx={{marginLeft: 20, marginRight: 20, cursor: 'pointer'}}
+                        className={admin.header__item}
                         onClick={() => router.push('/admin')}
                     >
                         Music
@@ -24,7 +26,7 @@ const AdminHeader = () => {
                         variant="h6" 
                         color="inherit" 
                         component="div"
-                        sx={{marginLeft: 20, marginRight: 20, cursor: 'pointer'}}
+                        className={admin.header__item}
                         onClick={() => router.push('/admin/category')}
                     >
                         Category
