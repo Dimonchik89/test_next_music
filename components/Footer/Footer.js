@@ -9,6 +9,9 @@ import footer from "../../styles/footer.module.scss";
 import helper from '../../styles/helper.module.scss';
 import modal from "../../styles/modal.module.scss";
 import ModalSubscribe from '../Modal/ModalSubscribe';
+import ModalBlock from '../Modal/ModalBlock';
+import ModalYoutubeLink from '../Modal/ModalYoutubeLink';
+import ModalFixIt from "../Modal/ModalFixIt";
 
 const Footer = () => {
     const [showModal, setShowModal] = useState(false)
@@ -33,16 +36,7 @@ const Footer = () => {
                     <FooterBottom handleShowModal={handleShowModal}/>
                 </Box>
             </Container>
-            <Modal
-                open={showModal}
-                onClose={handleCloseModal}
-            >
-                <Box 
-                    className={modal.container}    
-                >
-                    LOREM
-                </Box>
-            </Modal>
+            <ModalFixIt showModal={showModal} handleCloseModal={handleCloseModal}/>
         </Box>
     )
 }

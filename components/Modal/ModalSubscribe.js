@@ -17,19 +17,6 @@ import button from "../../styles/button.module.scss"
 
 const ModalSubscribe = ({showModal, handleCloseModal}) => {
 
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        boxShadow: 24,
-        height: "75%",
-        overflowY: "scroll",
-        pt: 2,
-        px: 4,
-        pb: 3,
-    };
-
     return (
         <Modal
             // hideBackdrop

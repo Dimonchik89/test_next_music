@@ -5,6 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from "next/image";
 import { sendEmail } from "../../api/sendEmail";
 import ErrorModal from "./ErrorModal";
+import useValue from "../../hooks/useValue";
 
 import helper from "../../styles/helper.module.scss";
 import modal from "../../styles/modal.module.scss"
@@ -12,12 +13,13 @@ import modal from "../../styles/modal.module.scss"
 import youtube from "../../static/icon/youtube_big.svg"
 
 const ModalYoutubeLink = ({onClose}) => {
-    const [value, setValue] = useState("")
+    // const [value, setValue] = useState("")
+    const { value, handleChangeValue } = useValue()
     const [showError, setShowError] = useState(false)
 
-    const handleChangeValue = (e) => {
-        setValue(e.target.value)
-    }
+    // const handleChangeValue = (e) => {
+    //     setValue(e.target.value)
+    // }
 
     const openErrorModal = () => {
         setShowError(true)
@@ -30,13 +32,11 @@ const ModalYoutubeLink = ({onClose}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const response = await sendEmail(value)
-
+        console.log(response);
         if(response.status === 200) {
-            console.log("youtube data", response);
             onClose()
         } else {
             openErrorModal()
-            console.log("youtube error", response);
         }
 
     }
@@ -87,7 +87,11 @@ const ModalYoutubeLink = ({onClose}) => {
                     </button>
                 </Box>
             </Box>
-            <ErrorModal open={showError} handleClose={closeErrorModal} text="You must add your youtube link"/>
+            <ErrorModal 
+                open={showError} 
+                handleClose={closeErrorModal} 
+                text="You must add your youtube link"
+            />
         </>
     )
 }
