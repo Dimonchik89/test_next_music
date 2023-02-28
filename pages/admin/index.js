@@ -1,4 +1,4 @@
-import { Box, Button, Container, Tab, Tabs } from "@mui/material"
+import { Box, Button, Container } from "@mui/material"
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router"
 import { role } from "../../store/user/selectors";
@@ -16,8 +16,8 @@ import ModalMusicAdmin from "../../components/Modal/ModalMusic/ModalMusicAdmin";
 import useHttp from "../../hooks/useHttp";
 import AlertMessage from '../../components/AlertMessage/AlertMessage';
 import PagePagination from "../../components/PagePagination/PagePagination";
-import { Home } from "../index";
 
+import helper from "../../styles/helper.module.scss";
 import admin from "../../styles/admin.module.scss";
 import pagination from "../../styles/pagination.module.scss";
 
@@ -72,12 +72,6 @@ const Admin = ({role, checkRole, addUser, music, selectMusics, actualMusics, cat
 
     const content = actualMusics?.map(item => <AdminMusicItem key={item.id} music={item}/>)
 
-
-    // if(checkRole.message) {
-    //     router.push('/')
-    //     return null
-    // }
-
     return (
         <>
         <AdminHeader/>
@@ -87,6 +81,7 @@ const Admin = ({role, checkRole, addUser, music, selectMusics, actualMusics, cat
                     <Button 
                         variant="outlined"
                         onClick={handleOpenModalMusic}
+                        className={helper.fz__16}
                     >
                         Add music
                     </Button>

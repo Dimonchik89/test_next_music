@@ -100,7 +100,12 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
             onClose={handleClose}
         >
             <Box sx={style}>
-                <Typography variant="h4" component="h2" textAlign="center">
+                <Typography 
+                    variant="h4" 
+                    component="h2" 
+                    textAlign="center"
+                    className={helper.fz__24}
+                >
                     {modalTitle}
                 </Typography>
                 <Box>
@@ -134,7 +139,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                                 value={formik.values.description}
                                 onChange={formik.handleChange}
                                 fullWidth
-                                inputProps={{style: {fontSize: 16}, maxLength: 100}}
+                                inputProps={{style: {fontSize: 16, lineHeight: 1.4}, maxLength: 100}}
                                 InputLabelProps={{style: {fontSize: 14}}}
                                 rows={6}
                                 multiline
@@ -152,7 +157,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                                 value={formik.values.keywords}
                                 onChange={formik.handleChange}
                                 fullWidth
-                                inputProps={{style: {fontSize: 20}, maxLength: 100}}
+                                inputProps={{style: {fontSize: 16}, maxLength: 100}}
                                 InputLabelProps={{style: {fontSize: 14}}}
                             />
                             {(formik.errors.keywords && formik.touched.keywords) ? <div className={error.error}>{formik.errors.keywords}</div> : null}
@@ -181,9 +186,9 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                         </Box>
 
                         <Box className={modal.img__wrapper}>
-                            <Box 
-                            ></Box>
-                            <Box>Music: {formik.values?.audio?.name || formik.values?.audio}</Box>
+                            <Box className={helper.fz__24}>
+                                Music: {formik.values?.audio?.name || formik.values?.audio}
+                            </Box>
                             <input 
                                 className={modal.file}
                                 ref={audioRef}
@@ -220,12 +225,14 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                         <Box className={`${helper.d__flex} ${helper.space__between}`}>
                             <Button
                                 variant="outlined"
+                                className={helper.fz__16}
                                 onClick={() => imgRef.current.click()}
                             >
                                 Select Photo
                             </Button>
                             <Button
                                 variant="outlined"
+                                className={helper.fz__16}
                                 onClick={() => audioRef.current.click()}
                             >
                                 Select Music
@@ -244,6 +251,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
                                     variant="outlined"
                                     type="submit"
                                     color="success"
+                                    className={helper.fz__16}
                                 >
                                     {buttonTitle}
                                 </Button>

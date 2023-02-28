@@ -90,6 +90,17 @@ button {
 #nprogress .bar {
   background: $yellow !important;
 }
+
+.MuiFormControlLabel-label {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.MuiSvgIcon-root {
+  font-size: 2.5rem;
+}
+
+
 // .swiper-wrapper {
 
 //   @include _375 {
