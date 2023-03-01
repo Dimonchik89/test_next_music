@@ -23,6 +23,13 @@ const Search = ({ hideHeaderPlayer, showPlayer, searchValue, changeSearchValue, 
         if(showPlayer) {
            hideHeaderPlayer() 
         }
+
+        if(!searchValue?.length || !searchValue) {
+            router.push({
+                pathname: "/",
+            }, undefined, {scroll: false})
+            return 
+        }
         // resetProgress()  // test
         router.push({
             pathname: "/",

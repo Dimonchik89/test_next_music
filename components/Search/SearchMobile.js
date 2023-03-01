@@ -14,6 +14,14 @@ const SearchMobile = ({show, toggleMobileSearch, searchValue, changeSearchValue}
 
     const handleSend = (e) => {
         e.preventDefault()
+
+        if(!searchValue?.length || !searchValue) {
+            router.push({
+                pathname: "/",
+            }, undefined, {scroll: false})
+            return 
+        }
+
         router.push({
             pathname: "/",
             query: {keywords: searchValue},
