@@ -40,14 +40,14 @@ const formWaveSurferOptions = (ref) => ({
 function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPlayer, selectMusic, changeProgress, headerMusic, allStop, showPlayer }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
-  const [ intervalId, setIntervalId ] = useState(null)
+  // const [ intervalId, setIntervalId ] = useState(null)
   const [ duration, setDuration ] = useState(0)
   const router = useRouter();
   const [timerLeft, setTimerLeft] = useState(0) 
 
-  const handleChangeProgress = () => {
-    changeProgress(wavesurfer?.current?.getCurrentTime())
-  }
+  // const handleChangeProgress = () => {
+  //   changeProgress(wavesurfer?.current?.getCurrentTime())
+  // }
 
   const handlePlay = () => {
       if(music.id != headerMusic?.id) {
@@ -60,7 +60,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
         allStop()
         selectMusic(music.id)
       }
-      showHeaderPlayer()
+      // showHeaderPlayer()
       togglePlay(music.id)
   }
 
@@ -134,12 +134,12 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
       setTimeout(() => {
         wavesurfer?.current?.play();
       }, 1)
-      setIntervalId(setInterval(handleChangeProgress, 100))
+      // setIntervalId(setInterval(handleChangeProgress, 100))
     } else {
       setTimeout(() => {
         wavesurfer?.current?.pause();
       }, 1)
-      clearInterval(intervalId)
+      // clearInterval(intervalId)
     }
   }, [music?.play])
 

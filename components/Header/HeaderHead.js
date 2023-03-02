@@ -35,7 +35,7 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
 
     return (
         <Box className={header.header__inner}>
-            <Box className={`${header.header__item} ${headerStyle}`}>
+            <Box className={`${header.header__item} ${header.header__song__off}`}>
                 <picture>
                     <img
                         onClick={handleResetQuery}
@@ -43,7 +43,6 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
                         alt="logo"
                     />
                 </picture>
-                {search}
                 <button
                     className={`${button.border_gray_text_yellow} ${header.header__button}`}
                 >

@@ -23,46 +23,46 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
     const router = useRouter()
     const [loading, setLoading] = useState(false)
 
-    const handleDownloadMore = () => {
-        setLoading(true)
-        changeLimit(limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT)
-        incrementPage()
-        if(limit === process.env.NEXT_PUBLIC_SOUND_LIMIT) {
-            router.push({
-                pathname: "/",
-                query: {
-                    ...router.query,
-                    page: currentPage + 1,
-                }
-            }, undefined, { shallow: true })
-        } else {
-            router.push({
-                pathname: "/",
-                query: {
-                    ...router.query,
-                    page: currentPage + 1,
-                    limit: limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT,
-                }
-            }, undefined, { shallow: true })
-        }
+    // const handleDownloadMore = () => {
+    //     setLoading(true)
+    //     changeLimit(limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT)
+    //     incrementPage()
+    //     if(limit === process.env.NEXT_PUBLIC_SOUND_LIMIT) {
+    //         router.push({
+    //             pathname: "/",
+    //             query: {
+    //                 ...router.query,
+    //                 page: currentPage + 1,
+    //             }
+    //         }, undefined, { shallow: true })
+    //     } else {
+    //         router.push({
+    //             pathname: "/",
+    //             query: {
+    //                 ...router.query,
+    //                 page: currentPage + 1,
+    //                 limit: limit + +process.env.NEXT_PUBLIC_SOUND_LIMIT,
+    //             }
+    //         }, undefined, { shallow: true })
+    //     }
 
-        const queryKeys = Object.keys(router.query)
-        const tailQuery = queryKeys.filter(item => item !== "limit")
-        const resultQuery = {}
-        tailQuery.forEach(item => {
-            resultQuery[item] = router.query[item]
-        })
+    //     const queryKeys = Object.keys(router.query)
+    //     const tailQuery = queryKeys.filter(item => item !== "limit")
+    //     const resultQuery = {}
+    //     tailQuery.forEach(item => {
+    //         resultQuery[item] = router.query[item]
+    //     })
 
-        fetchPaginationMusic(`music?${new URLSearchParams({...resultQuery, page: currentPage + 1, limit: process.env.NEXT_PUBLIC_SOUND_LIMIT})}`) //убрать лимит, он задан дефолтно на сервере
-            .then(data => {
-                setLoading(false)
-                addMusic(data.payload)
-            })
-            .catch(e => {
-                setLoading(false)
-                throw new Error(e)
-            })
-    }
+    //     fetchPaginationMusic(`music?${new URLSearchParams({...resultQuery, page: currentPage + 1, limit: process.env.NEXT_PUBLIC_SOUND_LIMIT})}`) //убрать лимит, он задан дефолтно на сервере
+    //         .then(data => {
+    //             setLoading(false)
+    //             addMusic(data.payload)
+    //         })
+    //         .catch(e => {
+    //             setLoading(false)
+    //             throw new Error(e)
+    //         })
+    // }
 
     return (
         <Box className={main.main}>
@@ -71,7 +71,8 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                 maxWidth="md"
                 className={helper.container}
             >
-                {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>}
+                {/* {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>} */}
+                <Carousel styleWrapper={main.main__carousel} category={allCategory}/>
                 <Sound/>
                 <PagePagination pathname="/"/>
                 {/* <Box
