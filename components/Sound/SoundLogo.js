@@ -1,30 +1,14 @@
 import { Box } from "@mui/material";
-import { selectMusic } from "../../store/actualMusics";
-import { showHeaderPlayer } from "../../store/player";
-import { bindActionCreators } from "@reduxjs/toolkit";
-import { connect } from "react-redux";
 import { useRouter } from "next/router";
-import { music } from "../../store/actualMusics"
-import { createStructuredSelector } from 'reselect';
+
 
 import sound from "../../styles/sound.module.scss";
 
-const SoundLogo = ({iconPath, music, selectMusic, showHeaderPlayer, headerMusic}) => {
+const SoundLogo = ({iconPath}) => {
     const router = useRouter();
 
-    const handleShowPlayer = () => {
-        router.push({ 
-                pathname: '/', 
-                query: { ...router.query, sound: music.id } }, 
-                undefined, 
-                {scroll: false, shallow: true}
-            )
-        selectMusic(music.id)
-        // showHeaderPlayer()
-    }
-
     return (
-        <Box className={sound.logo__container} onClick={handleShowPlayer}>
+        <Box className={sound.logo__container}>
             <picture>
                 <img
                     className={sound.logo}
@@ -36,13 +20,4 @@ const SoundLogo = ({iconPath, music, selectMusic, showHeaderPlayer, headerMusic}
     )
 }
 
-const mapStateToProps = createStructuredSelector({
-    headerMusic: music
-})
-
-const mapDispatchToProps = dispatch => ({
-    selectMusic: bindActionCreators(selectMusic, dispatch),
-    showHeaderPlayer: bindActionCreators(showHeaderPlayer, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(SoundLogo);
+export default SoundLogo;

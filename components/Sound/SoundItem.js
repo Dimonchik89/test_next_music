@@ -12,7 +12,6 @@ const SoundItem = ({music}) => {
             <Box className={sound.item}>
                 <SoundLogo 
                     iconPath={music?.img}
-                    music={music}
                 />
 
                 <Box className={sound.content}>
