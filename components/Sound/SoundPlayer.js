@@ -91,6 +91,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
 
       wavesurfer.current.on("audioprocess", function () {
         const currentTime = wavesurfer.current.getCurrentTime();
+        setTimerLeft(deltaTimerLeft + (currentTime * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)
       });
 
       wavesurfer.current.on("ready", function () {
@@ -117,7 +118,8 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
 
   useEffect(() => {
     // setTimerLeft(deltaTimerLeft + (headerMusic?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) || 5)
-    setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)
+
+    // setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)  // раскомент если не будет работать прогрес
 
     if(music.play && music?.progress === duration) {
       togglePlay(music.id)
