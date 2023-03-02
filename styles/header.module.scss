@@ -363,7 +363,7 @@
             }
 
             .header__button {
-                opacity: 0;
+                display: none;
 
                 @include _375 {
                     display: none;

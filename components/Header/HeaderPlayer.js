@@ -67,7 +67,7 @@ const HeaderPlayer = ({music, hideHeaderPlayer, stopMusic}) => {
                 className={header.close}
                 onClick={closeHeaderPlayer}    
             >
-                <CloseIcon color="white" fontSize="large"/>
+                <CloseIcon sx={{color: '#f2d22b'}} fontSize="large"/>
             </IconButton>
         </Box>
     )

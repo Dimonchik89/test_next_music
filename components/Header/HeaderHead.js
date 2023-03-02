@@ -46,7 +46,6 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
                 {search}
                 <button
                     className={`${button.border_gray_text_yellow} ${header.header__button}`}
-                    // opacity: 0
                 >
                     Pro Catalog
                 </button>
