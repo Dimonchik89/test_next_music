@@ -40,14 +40,14 @@ const formWaveSurferOptions = (ref) => ({
 function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPlayer, selectMusic, changeProgress, headerMusic, allStop, showPlayer }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
-  const [ intervalId, setIntervalId ] = useState(null)
+  // const [ intervalId, setIntervalId ] = useState(null)
   const [ duration, setDuration ] = useState(0)
   const router = useRouter();
   const [timerLeft, setTimerLeft] = useState(0) 
 
-  const handleChangeProgress = () => {
-    changeProgress(wavesurfer?.current?.getCurrentTime())
-  }
+  // const handleChangeProgress = () => {
+  //   changeProgress(wavesurfer?.current?.getCurrentTime())
+  // }
 
   const handlePlay = () => {
       if(music.id != headerMusic?.id) {
@@ -116,13 +116,20 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
   let deltaTimerLeft = window.screen.width <= 375 ? -3 : 11;
 
   useEffect(() => {
-    // setTimerLeft(deltaTimerLeft + (headerMusic?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) || 5)
-
-    setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)  // раскомент если не будет работать прогрес
-    // setTimerLeft(deltaTimerLeft + (wavesurfer?.current?.getCurrentTime() * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)
+    setTimerLeft(deltaTimerLeft + (wavesurfer?.current?.getCurrentTime() * (waveformRef.current?.scrollWidth / (duration || 1))) || 5)
     console.log('music?.progress', music?.progress);
     console.log('wavesurfer?.current?.getCurrentTime()', wavesurfer?.current?.getCurrentTime());
     console.log('timerLeft', timerLeft);
+  }, [wavesurfer?.current?.getCurrentTime()])
+
+  useEffect(() => {
+    // setTimerLeft(deltaTimerLeft + (headerMusic?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) || 5)
+
+    // setTimerLeft(deltaTimerLeft + (music?.progress * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)  // раскомент если не будет работать прогрес
+    // setTimerLeft(deltaTimerLeft + (wavesurfer?.current?.getCurrentTime() * (waveformRef.current?.scrollWidth / (duration || 1))) * 0.998 || 5)
+    // console.log('music?.progress', music?.progress);
+    // console.log('wavesurfer?.current?.getCurrentTime()', wavesurfer?.current?.getCurrentTime());
+    // console.log('timerLeft', timerLeft);
 
     if(music.play && music?.progress === duration) {
       togglePlay(music.id)
@@ -139,12 +146,12 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
       setTimeout(() => {
         wavesurfer?.current?.play();
       }, 1)
-      setIntervalId(setInterval(handleChangeProgress, 100))
+      // setIntervalId(setInterval(handleChangeProgress, 100))
     } else {
       setTimeout(() => {
         wavesurfer?.current?.pause();
       }, 1)
-      clearInterval(intervalId)
+      // clearInterval(intervalId)
     }
   }, [music?.play])
 
