@@ -40,7 +40,7 @@ const formWaveSurferOptions = (ref) => ({
 function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPlayer, selectMusic, changeProgress, headerMusic, allStop, showPlayer }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
-  // const [ intervalId, setIntervalId ] = useState(null)
+  const [ intervalId, setIntervalId ] = useState(null)
   const [ duration, setDuration ] = useState(0)
   const router = useRouter();
   const [timerLeft, setTimerLeft] = useState(0) 
