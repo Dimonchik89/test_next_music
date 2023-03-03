@@ -68,6 +68,7 @@ const ModalMusicAdmin = ({open, handleClose, handleOpenAlert, nameValue, imgValu
             formData.append("img", values.img)
             formData.append("audio", values.audio)
             const response = await serverFunc(formData)
+            console.log("admin modal response", response);
             if(response.status === 200) {
                 setLoading(false)
                 handleClose()
