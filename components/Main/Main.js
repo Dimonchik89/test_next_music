@@ -17,7 +17,6 @@ import {Button} from "@mui/material";
 
 import helper from "../../styles/helper.module.scss";
 import main from "../../styles/main.module.scss";
-import button from "../../styles/button.module.scss";
 
 const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incrementPage, currentPage, allCount, changeLimit, limit, actualMusics }) => {
     const router = useRouter()
@@ -69,7 +68,7 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
             <Header/>
             <Container 
                 maxWidth="md"
-                className={helper.container}
+                className={`${helper.container} ${main.content}`}
             >
                 {/* {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>} */}
                 <Carousel styleWrapper={main.main__carousel} category={allCategory}/>

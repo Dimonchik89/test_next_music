@@ -2,15 +2,22 @@
 @import "./mixin/mixin.scss";
 
 .main {
+    min-height: 100vh;
     width: 100%;
     height: 100%;
     background: url("../static/images/bg.jpg");
     background-size: cover;
     padding-bottom: 7rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
     @include _375 {
         padding-bottom: 2.2rem;
+    }
+
+    .content {
+        flex: 1 1 auto;
     }
 }
 
