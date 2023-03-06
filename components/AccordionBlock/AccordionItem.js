@@ -10,7 +10,6 @@ import accordion from "../../styles/accordion.module.scss";
 
 const AccordionItem = ({title, text}) => {
 
-
     return (
         <Accordion className={accordion.bg}>
             <AccordionSummary
