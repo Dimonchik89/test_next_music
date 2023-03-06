@@ -6,12 +6,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box } from '@mui/material';
 
 import helper from "../../styles/helper.module.scss";
+import accordion from "../../styles/accordion.module.scss";
 
 const AccordionItem = ({title, text}) => {
 
 
     return (
-        <Accordion>
+        <Accordion className={accordion.bg}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

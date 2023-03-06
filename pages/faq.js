@@ -7,22 +7,22 @@ import main from "../styles/main.module.scss"
 
 const accordionContent1 = [
     {
-        title: "Accordion 1",
+        title: "Title 1",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
     },
     {
-        title: "Accordion 2",
+        title: "Title 2",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
     },
 ]
 
 const accordionContent2 = [
     {
-        title: "Accordion 3",
+        title: "Title 3",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
     },
     {
-        title: "Accordion 4",
+        title: "Title 4",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
     },
 ]
