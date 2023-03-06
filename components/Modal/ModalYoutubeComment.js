@@ -2,11 +2,12 @@ import { Box } from "@mui/material"
 import { songIsDownloading } from "../../store/actualMusics"
 import { connect } from "react-redux"
 import { createStructuredSelector } from 'reselect';
-
+import { useRouter } from "next/router";
 
 import modal from "../../styles/modal.module.scss"
 
 const ModalYoutubeComment = ({songIsDownloading}) => {
+    const router = useRouter()
     
     return (
         <Box className={modal.info__container}>

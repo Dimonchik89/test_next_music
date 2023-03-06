@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import Share from "../Share/Share";
 import { useRouter } from "next/router";
@@ -17,12 +17,15 @@ const SoundHead = ({music}) => {
         setActiveButton(prev => !prev)
     }
 
-    // если хук работает правельно убрать импорты функция, удалить их из mapDispatchToPtops и Props-ов
-    // const handleDownload = (e) => {
-    //     setSongIsDownloading(music)
-    //     handleOpenModal()
-    //     downloadMusic({e, music})
-    // }
+    const addSoundToQuery = () => {
+        router.push({
+            sound: music.id
+        })
+    } 
+
+    useEffect(() => {
+        console.log(router.query);
+    }, [router.query])
 
     const showButton = activeButton ? 
         <div className={sound.button__close_wrapper}>
@@ -54,7 +57,10 @@ const SoundHead = ({music}) => {
                     download
                     target="_blank"
                     // onClick={handleDownload}  
-                    onClick={(e) => handleDownload(e, music)}  
+                    onClick={(e) => {
+                        addSoundToQuery()
+                        handleDownload(e, music)
+                    }}  
                 >
                     <p className={sound.text__inner}>
                         Download
