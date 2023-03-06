@@ -19,13 +19,10 @@ const SoundHead = ({music}) => {
 
     const addSoundToQuery = () => {
         router.push({
-            sound: music.id
-        })
-    } 
-
-    useEffect(() => {
-        console.log(router.query);
-    }, [router.query])
+            pathname: "/",
+            query: {...router.query, sound: music.id}
+        }, undefined, {scroll: false, shallow: true})
+    }
 
     const showButton = activeButton ? 
         <div className={sound.button__close_wrapper}>
@@ -56,7 +53,6 @@ const SoundHead = ({music}) => {
                     className={`${sound.button__text}`} 
                     download
                     target="_blank"
-                    // onClick={handleDownload}  
                     onClick={(e) => {
                         addSoundToQuery()
                         handleDownload(e, music)

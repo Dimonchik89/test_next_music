@@ -15,14 +15,21 @@ const PagePagination = ({allCount, pathname, fetchPaginationMusic, clearSearchVa
     const [page, setPage] = useState(+router.query.page || 1)
     const allPage = Math.ceil(+allCount / process.env.NEXT_PUBLIC_SOUND_LIMIT) || 1
 
+    const queryKeys = Object.keys(router.query)
+    const queryKeysWithoutSound = queryKeys?.filter(item => item != "sound")
+    const objectQueryWithoutSound = {}
+    queryKeysWithoutSound.forEach(item => objectQueryWithoutSound[item] = router.query[item])
+    
+
     const handleChangePage = (e, value) => {
         allStop()
         hideHeaderPlayer()
         clearSearchValue()
         setPage(value)
+
         router.push({
             pathname: pathname,
-            query: {...router.query, page: value}
+            query: {...objectQueryWithoutSound, page: value}
         }, undefined, { scroll: false})
         fetchPaginationMusic(`music?page=${value}`)
             .then(data => console.log(data))
