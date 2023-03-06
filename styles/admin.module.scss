@@ -74,5 +74,10 @@
 .header__item {
     margin: 0 20rem;
     font-size: 2rem;
+    font-weight: 600;
     cursor: pointer;
+}
+
+.header__item_active {
+    color: $yellow;
 }
