@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Toolbar } from "@mui/material"
 import AdminHeaderItem from "./AdminHeaderItem";
 import { useRouter } from "next/router"
 
@@ -27,18 +27,6 @@ const AdminHeader = () => {
                     sx={{display: "flex", justifyContent: "center"}}    
                 >
                     {content}
-                    {/* <span
-                        className={`${admin.header__item} ${activeLink}`}
-                        onClick={() => router.push('/admin')}
-                    >
-                        Music
-                    </span>
-                    <span
-                        className={`${admin.header__item} ${activeLink}`}
-                        onClick={() => router.push('/admin/category')}
-                    >
-                        Category
-                    </span> */}
                 </Toolbar>
             </AppBar>
         </Box>
