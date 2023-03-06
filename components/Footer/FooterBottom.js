@@ -23,7 +23,7 @@ const FooterBottom = ({handleShowModal}) => {
                 >
                     FAQ
                 </button>
-                <Box className={footer.bottom__logo}></Box>
+                {/* <Box className={footer.bottom__logo}></Box> */}
             </Box>
         </Box>
     )

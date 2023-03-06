@@ -6,6 +6,7 @@ import useValue from '../../hooks/useValue';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { sendFix } from '../../api/sendEmail';
 import ErrorModal from './ErrorModal';
+import ModalYoutubeLink from './ModalYoutubeLink';
 
 import helper from "../../styles/helper.module.scss"
 import modal from "../../styles/modal.module.scss"
@@ -58,9 +59,9 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
                             className={helper.color__white}
                             textAlign="center"
                         >
-                            Send your proposition
+                            If you used music from tunebox.com, then just put the link to the video bellow andassociatedcopyright claims be relesed
                         </Typography>
-                        <Box>
+                        {/* <Box>
                             <form 
                                 className={modal.form__fix}
                                 onSubmit={handleSubmit}
@@ -82,8 +83,8 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
                                     </button>
                                 </Box>
                             </form>
-
-                        </Box>
+                        </Box> */}
+                        <ModalYoutubeLink onClose={handleCloseModal}/>
                     </Box>
                 </Box>
             </Modal>
