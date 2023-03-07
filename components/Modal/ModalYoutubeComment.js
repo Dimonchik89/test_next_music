@@ -36,14 +36,6 @@ const ModalYoutubeComment = ({songIsDownloading}) => {
         }
     }
 
-    const showMessage = () => {
-        setOpen(true)
-
-        setTimeout(() => {
-            setOpen(false)
-        }, 2000)
-    }
-
     const showCopyMessageClass = open ? helper.show : helper.hide
     
     return (
