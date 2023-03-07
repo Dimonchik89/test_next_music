@@ -11,9 +11,9 @@ const SoundContent = ({music}) => {
 
     return (
         <Box className={`${helper.d__flex} ${helper.direction__column}`}>
-            <Box>
+            {/* <Box>
                 <span className={text.text__sm}>Tunebox</span>
-            </Box>
+            </Box> */}
             <Box className={`${helper.d__flex} ${helper.align__end}`}>
                 <SoundPlayer 
                     music={music} 
