@@ -3,12 +3,16 @@ import { Box } from "@mui/material";
 import Share from "../Share/Share";
 import { useRouter } from "next/router";
 import useMusic from "../../hooks/useMusic";
+import { allStop, selectMusic, music } from "../../store/actualMusics";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { connect } from "react-redux";
+import { createStructuredSelector } from 'reselect';
 
 import helper from "../../styles/helper.module.scss";
 import sound from "../../styles/sound.module.scss";
 
 
-const SoundHead = ({music}) => {
+const SoundHead = ({music, headerMusic, selectMusic}) => {
     const [ activeButton, setActiveButton ] = useState(false)
     const router = useRouter();
     const { handleDownload } = useMusic()
@@ -17,11 +21,16 @@ const SoundHead = ({music}) => {
         setActiveButton(prev => !prev)
     }
 
-    const addSoundToQuery = () => {
-        router.push({
-            pathname: "/",
-            query: {...router.query, sound: music.id}
-        }, undefined, {scroll: false, shallow: true})
+        const selectSong = () => {
+        if(music?.id != headerMusic?.id) {
+            router.push({ 
+                pathname: '/', 
+                query: { ...router.query, sound: music?.id } }, 
+                undefined, 
+                {scroll: false, shallow: true}
+            )
+            selectMusic(music?.id)
+        }
     }
 
     const showButton = activeButton ? 
@@ -41,7 +50,7 @@ const SoundHead = ({music}) => {
         <Box className={sound.head}>
             <span 
                 className={sound.title}
-                onClick={addSoundToQuery}
+                onClick={selectSong}
             >
                {music?.name}
                
@@ -68,4 +77,12 @@ const SoundHead = ({music}) => {
     )
 }
 
-export default SoundHead;
+const mapStateToProps = createStructuredSelector({
+    headerMusic: music
+})
+
+const mapDispatchToProps = dispatch => ({
+    selectMusic: bindActionCreators(selectMusic, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SoundHead);
