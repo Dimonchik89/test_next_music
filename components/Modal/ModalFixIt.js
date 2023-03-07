@@ -51,7 +51,7 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
                     clearValue()
                 }}
             >
-                <Box className={modal.container}>
+                <Box className={`${modal.container} ${modal.container__fix}`}>
                     <Box className={modal.fix__wrapper}>
                         <Typography
                             variant='h3'
