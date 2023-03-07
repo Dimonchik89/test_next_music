@@ -60,7 +60,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
         allStop()
         selectMusic(music.id)
       }
-      // showHeaderPlayer()
+      showHeaderPlayer()
       togglePlay(music.id)
   }
 

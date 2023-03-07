@@ -19,13 +19,13 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
     const router = useRouter()
     const id = router.query.sound
 
-    // useEffect(() => {
-    //     // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
-    //     if(id) {
-    //         showHeaderPlayer()
-    //         // selectMusic(id)
-    //     }
-    // }, [id])
+    useEffect(() => {
+        // ошибка Link возникает по причине того что сразу в стейт попадают пести из первой категории, а ищится песня по id из второй категории. Нужно помещать в стейт сразу вче песни или сделать доп проверку
+        if(id) {
+            showHeaderPlayer()
+            // selectMusic(id)
+        }
+    }, [id])
 
     useEffect(() => {
         if(!music) {
@@ -38,8 +38,8 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
     const headContentStyle = showPlayer ? header.content_player : header.header__content;
 
     return (
-        <Box className={`${header.header__content} ${helper.color__white}`}>
-            {/* { showPlayer 
+        <Box className={`${headContentStyle} ${helper.color__white}`}>
+            { showPlayer 
                 ? <HeaderPlayer/> 
                 : <Container maxWidth="xl">
                     <Box 
@@ -62,8 +62,8 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
                         {showSearch}
                     </Box>
                 </Container>
-            } */}
-            <Container maxWidth="xl">
+            }
+            {/* <Container maxWidth="xl">
                 <Box 
                     className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${helper.direction__column} ${helper.container} ${helper.margin__auto}`}
                 >
@@ -83,7 +83,7 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
                 >               
                     <Search/> 
                 </Box>
-            </Container>
+            </Container> */}
         </Box>
     )
 }

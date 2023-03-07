@@ -41,6 +41,7 @@ const SoundHead = ({music}) => {
         <Box className={sound.head}>
             <span 
                 className={sound.title}
+                onClick={addSoundToQuery}
             >
                {music?.name}
                

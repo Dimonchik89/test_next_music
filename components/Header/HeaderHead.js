@@ -43,6 +43,7 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
                         alt="logo"
                     />
                 </picture>
+                {search}
                 <button
                     className={`${button.border_gray_text_yellow} ${header.header__button}`}
                 >
