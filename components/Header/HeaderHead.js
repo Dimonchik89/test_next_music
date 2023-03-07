@@ -35,7 +35,7 @@ const HeaderHead = ({showPlayer, mobileMenu, mobileSearch, toggleMobileMenu, tog
 
     return (
         <Box className={header.header__inner}>
-            <Box className={`${header.header__item} ${header.header__song__off}`}>
+            <Box className={`${header.header__item} ${headerStyle}`}>
                 <picture>
                     <img
                         onClick={handleResetQuery}
