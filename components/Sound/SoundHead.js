@@ -20,7 +20,6 @@ const SoundHead = ({music, headerMusic, selectMusic}) => {
     const changeButton = () => {
         setActiveButton(prev => !prev)
     }
-
         const selectSong = () => {
         if(music?.id != headerMusic?.id) {
             router.push({ 
@@ -31,6 +30,13 @@ const SoundHead = ({music, headerMusic, selectMusic}) => {
             )
             selectMusic(music?.id)
         }
+    }
+
+    const addSoundToQuery = () => {
+        router.push({
+            pathname: "/",
+            query: {...router.query, sound: music.id}
+        }, undefined, {scroll: false, shallow: true})
     }
 
     const showButton = activeButton ? 
