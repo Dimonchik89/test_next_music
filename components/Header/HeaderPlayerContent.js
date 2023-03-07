@@ -32,23 +32,35 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
             onClick={changeButton}
         />
 
-    const downloadStyle = focusDownload ? button.header__download__hover : null;
+    // const downloadStyle = focusDownload ? button.header__download__hover : null;
     
-    const downloadIcon = focusDownload ? 
-        <Image
-            style={{marginBottom: '7px'}}
-            src="/static/icon/download-black.svg"
-            width={20}
-            height={21}
-            alt="download"
-        /> : 
-        <Image
-            style={{marginBottom: '7px'}}
-            src="/static/icon/download.svg"
-            width={20}
-            height={21}
-            alt="download"
-        />
+    // const downloadIcon = focusDownload ? 
+    //     <Image
+    //         style={{marginBottom: '4px'}}
+    //         src="/static/icon/download-black.svg"
+    //         width={20}
+    //         height={21}
+    //         alt="download-black"
+    //     /> : 
+    //     <Image
+    //         style={{marginBottom: '4px'}}
+    //         src="/static/icon/download.svg"
+    //         width={20}
+    //         height={21}
+    //         alt="download"
+    //     />
+
+    // const downloadIcon = focusDownload ? 
+    //     <image
+    //         style={{marginBottom: '4px', height: '21px', width: '20px'}}
+    //         src="./static/icon/download-black.svg"
+    //         alt="download-black"
+    //     /> : 
+    //     <image
+    //         style={{marginBottom: '4px', height: '21px', width: '20px'}}
+    //         src="./static/icon/download.svg"
+    //         alt="download"
+    //     />
 
     // если хук работает правельно убрать импорты функция, удалить их из mapDispatchToPtops и Props-ов
     // const handleDownload = (e) => {
@@ -70,13 +82,13 @@ const HeaderPlayerContent = ({music, changeButton, setFocusDownload, activeButto
             </Box>
             <Box className={header.button__group}>
                 <button 
-                    className={`${button.header__download} ${downloadStyle}`} 
+                    className={`${button.header__download}`} 
                     // onClick={handleDownload}
                     onClick={e => handleDownload(e, music)}
                     onMouseEnter={() => setFocusDownload(true)}
                     onMouseLeave={() => setFocusDownload(false)}
                 >
-                    {downloadIcon}
+                    {/* {downloadIcon} */}
                     <p>
                         Download
                     </p>
