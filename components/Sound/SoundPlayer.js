@@ -44,6 +44,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
   const [ duration, setDuration ] = useState(0)
   const router = useRouter();
   const [timerLeft, setTimerLeft] = useState(0) 
+  const [loading, setLoading] = useState(false)
 
   const handleChangeProgress = () => {
     changeProgress(wavesurfer?.current?.getCurrentTime())
@@ -77,7 +78,7 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
     }
   }
 
-  const selectButton = music.play ? <ButtonPlay handleClick={handlePause} styleClass={button.pause}/> : <ButtonPlay handleClick={handlePlay} styleClass={button.play}/>;
+  const selectButton = music.play ? <ButtonPlay handleClick={handlePause} styleClass={button.pause}/> : <ButtonPlay handleClick={handlePlay} disabled={loading} styleClass={button.play}/>;
 
   useEffect(() => {
     const create = async () => {
@@ -86,7 +87,9 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
       const options = formWaveSurferOptions(waveformRef.current);
 
       wavesurfer.current = WaveSurfer?.create(options);
+      setLoading(true)
       const musicUrl = await generateMusicLink(music.audio)
+      setLoading(false)
       wavesurfer.current.load(musicUrl);
 
       wavesurfer.current.on("audioprocess", function () {
@@ -169,6 +172,10 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
       return musicTimer(music?.progress)
     }
   }
+
+  useEffect(() => {
+    console.log("loading", loading)
+  }, [loading])
 
   return (
     <>

@@ -1,11 +1,12 @@
 
 
-const ButtonPlay = ({handleClick, styleClass}) => {
+const ButtonPlay = ({handleClick, styleClass, disabled=false}) => {
 
     return (
         <button 
             className={styleClass}
             onClick={handleClick}
+            disabled={disabled}
         />
     )
 }

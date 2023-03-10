@@ -41,6 +41,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
     const [ intervalId, setIntervalId ] = useState(null)
     const [duration, setDuration] = useState(0)
     const [ timerLeft, setTimerLeft] = useState(3)
+    const [loading, setLoading] = useState(false)
 
     const handleChangeProgress = () => {
         changeProgress(wavesurfer?.current?.getCurrentTime())
@@ -76,7 +77,7 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
 
     const scale = {width: "100%", display: "flex", alignItems: "center", height: "52px", overflow: "hidden", position: "relative"}
 
-    const selectButton = music?.play ? <ButtonPlay handleClick={handlePause} styleClass={header.pause__button}/> : <ButtonPlay handleClick={handlePlay} styleClass={header.play__button}/>;
+    const selectButton = music?.play ? <ButtonPlay handleClick={handlePause} styleClass={header.pause__button}/> : <ButtonPlay handleClick={handlePlay} styleClass={header.play__button} disabled={loading}/>;
 
      useEffect(() => {
         const create = async () => {
@@ -85,7 +86,9 @@ const HeaderPlayerMusic = ({music, togglePlay, changeProgress, cahngeCurrentTime
             const options = formWaveSurferOptions(waveformRef.current);
 
             wavesurfer.current = WaveSurfer.create(options);
+            setLoading(true)
             const musicUrl = await generateMusicLink(music?.audio)
+            setLoading(false)
             wavesurfer.current.load(musicUrl);
 
             wavesurfer.current.on("audioprocess", function () {
