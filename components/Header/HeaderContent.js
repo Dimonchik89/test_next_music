@@ -63,27 +63,6 @@ const HeaderContent = ({showPlayer, showHeaderPlayer, selectMusic, actualMusics,
                     </Box>
                 </Container>
             }
-            {/* <Container maxWidth="xl">
-                <Box 
-                    className={`${helper.d__flex} ${helper.align__center} ${helper.justify__center} ${helper.direction__column} ${helper.container} ${helper.margin__auto}`}
-                >
-                    <h1
-                        className={text.title}
-                    >
-                        ROYALTY FREE MUSIC FOR VIDEO WITHOUT CLAIMS
-                    </h1>
-                    <Box className={header.subtitle__wrapper}>
-                        <p className={`${text.subtitle} ${helper.color__white}`}>
-                            100% Claim-Free for any Platforms. Find Your Royalty Free Music Now!
-                        </p>
-                    </Box>
-                </Box>
-                <Box
-                    className={`${helper.horizontal__center} ${search.search_header__wrapper}`}
-                >               
-                    <Search/> 
-                </Box>
-            </Container> */}
         </Box>
     )
 }

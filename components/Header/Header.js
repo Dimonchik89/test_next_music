@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { Box } from '@mui/system';
-import header from "../../styles/header.module.scss";
 import HeaderHead from './HeaderHead';
 import HeaderContent from './HeaderContent';
+
+import header from "../../styles/header.module.scss";
 
 const Header = () => {
     const pageRef = useRef(null)
@@ -17,4 +18,5 @@ const Header = () => {
         </Box>
     )
 }
+
 export default Header;

@@ -71,7 +71,6 @@ const Main = ({showPlayer, allCategory, fetchPaginationMusic, addMusic, incremen
                 className={`${helper.container} ${main.content}`}
             >
                 {showPlayer ? null : <Carousel styleWrapper={main.main__carousel} category={allCategory}/>}
-                {/* <Carousel styleWrapper={main.main__carousel} category={allCategory}/> */}
                 <Sound/>
                 <PagePagination pathname="/"/>
                 {/* <Box

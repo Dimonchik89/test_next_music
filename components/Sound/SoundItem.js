@@ -9,7 +9,7 @@ import sound from "../../styles/sound.module.scss";
 const SoundItem = ({music}) => {
     const { query } = useRouter()
 
-    const activeStyle = music.id === +query?.sound ? sound.active : null
+    const activeStyle = music.id == query?.sound ? sound.active : null
 
     return (
         <Box className={sound.inner}>
