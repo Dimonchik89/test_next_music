@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useValue from '../../hooks/useValue';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
-import { sendFix } from '../../api/sendEmail';
+import { sendEmail } from '../../api/sendEmail';
 import ErrorModal from './ErrorModal';
 import ModalYoutubeLink from './ModalYoutubeLink';
 
@@ -32,7 +32,7 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await sendFix(value)
+        const response = await sendEmail(value)
         if(response.status === 200) {
             handleCloseModal()
             clearValue()
