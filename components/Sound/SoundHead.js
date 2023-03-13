@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 import Share from "../Share/Share";
 import { useRouter } from "next/router";
@@ -30,13 +30,6 @@ const SoundHead = ({music, headerMusic, selectMusic}) => {
             )
             selectMusic(music?.id)
         }
-    }
-
-    const addSoundToQuery = () => {
-        router.push({
-            pathname: "/",
-            query: {...router.query, sound: music.id}
-        }, undefined, {scroll: false, shallow: true})
     }
 
     const showButton = activeButton ? 
