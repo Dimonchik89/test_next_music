@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Box, FormControl, InputAdornment, OutlinedInput, TextField } from "@mui/material";
-import IconButton from '@mui/material/IconButton';
+import { Box } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from "next/image";
 import { sendEmail } from "../../api/sendEmail";
@@ -13,13 +12,8 @@ import modal from "../../styles/modal.module.scss"
 import youtube from "../../static/icon/youtube_big.svg"
 
 const ModalYoutubeLink = ({onClose}) => {
-    // const [value, setValue] = useState("")
     const { value, handleChangeValue } = useValue()
     const [showError, setShowError] = useState(false)
-
-    // const handleChangeValue = (e) => {
-    //     setValue(e.target.value)
-    // }
 
     const openErrorModal = () => {
         setShowError(true)
