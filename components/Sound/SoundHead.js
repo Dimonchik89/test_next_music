@@ -70,7 +70,7 @@ const SoundHead = ({music, headerMusic, selectMusic}) => {
                     download
                     target="_blank"
                     onClick={(e) => {
-                        addSoundToQuery()
+                        selectSong()
                         handleDownload(e, music)
                     }}  
                 >
