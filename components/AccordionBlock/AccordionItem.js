@@ -54,7 +54,6 @@ const AccordionItem = ({title, text, link}) => {
                     </button> : 
                 null} */}
                 <button 
-                    className={footer.link}
                     // onClick={handleShowModal}
                     onClick={() => router.push({
                         pathname: "/",
