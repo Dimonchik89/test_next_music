@@ -33,7 +33,7 @@ const AccordionItem = ({title, text, link}) => {
                     component="span"
                 >
                     {text}
-                    {!!link ? <a style={{color: "red"}} target="_blank" href={link}>YouTube</a> : null}
+                    {/* {!!link ? <a style={{color: "red"}} target="_blank" href={link}>YouTube</a> : null} */}
                     {/*{allowedContainer}
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
