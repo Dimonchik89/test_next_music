@@ -13,7 +13,7 @@ const accordionContent1 = [
     },
     {
         title: "How can I get the copyright claim removed?",
-        text: `If you receive copyright claims, you can remove them following this form: `,
+        text: `If you receive copyright claims, you can remove them following this `,
         link: `${process.env.NEXT_PUBLIC_PAGE_URL}?fix=fix`
     },
     {

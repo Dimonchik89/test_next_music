@@ -10,12 +10,11 @@ import helper from "../../styles/helper.module.scss";
 import accordion from "../../styles/accordion.module.scss";
 import footer from "../../styles/footer.module.scss";
 
-const AccordionItem = ({title, text, link}) => {
+const AccordionItem = ({title, text, link, allowed, forbidden}) => {
     const router = useRouter()
 
-    // const actualLink = !!link ? <a target="_blank" href={link}>YouTube</a> : null
-    // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
-    // const forbiddenContainer = forbidden?.map((item, i) => <p key={i}>{item}</p>)
+    const allowedContainer = allowed?.map((item, i) => <Typography variant="h4" component="h5" key={i}>{item}</Typography>)
+    const forbiddenContainer = forbidden?.map((item, i) => <Typography variant='h4' component="h5" key={i}>{item}</Typography>)
 
     return (
         <Accordion className={accordion.bg}>
@@ -37,14 +36,9 @@ const AccordionItem = ({title, text, link}) => {
                     component="span"
                 >
                     {text}
-                    
-                    {/*{allowedContainer}
-                    {!!forbidden ? 'Not Allowed:' : null}
-                    {forbiddenContainer} */}
                 </Typography>
                 {!!link ? 
                     <button 
-                        // className={footer.link}
                         style={{fontSize: "20px", color: "#900"}}
                         // onClick={handleShowModal}
                         onClick={() => router.push({
@@ -54,21 +48,18 @@ const AccordionItem = ({title, text, link}) => {
                             },
                         }, undefined, {scroll: false, shallow: false})}
                     >
-                        Youtube
+                        form
                     </button> : 
                 null}
-                {/* <button 
-                    className={footer.link}
-                    // onClick={handleShowModal}
-                    onClick={() => router.push({
-                        pathname: "/",
-                        query: {
-                            fix: "fix"
-                        },
-                    }, undefined, {scroll: false, shallow: false})}
+                            
+                {allowedContainer}
+                {!!allowed ? <Typography
+                    variant="h4"
+                    component="span"
                 >
-                    Youtube
-                </button> */}
+                    Not Allowed:
+                </Typography> : null}
+                {forbiddenContainer}
             </AccordionDetails>
         </Accordion>
     )
