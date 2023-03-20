@@ -39,8 +39,7 @@ const AccordionItem = ({title, text, link}) => {
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
                 </Typography>
-                {!!link ? <a className={`${helper.fz__24}`} style={{color: "#900"}} target="_blank" href={link}>YouTube</a> : null}
-                
+                {!!link ? <a className={`${helper.fz__24}`} style={{color: "#900"}} target="_blank" href={`${link}`}>YouTube</a> : null}
             </AccordionDetails>
         </Accordion>
     )
