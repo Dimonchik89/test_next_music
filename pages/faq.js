@@ -25,7 +25,7 @@ const accordionContent1 = [
     },
     {
         title: "Where I can use my music?",
-        text: `All music on ${process.env.NEXT_PUBLIC_SITE_NAME} can be used in your commercial and non-commercial projects for free, including but not limited to:`,
+        text: `All music on  can be used in your commercial and non-commercial projects for free, including but not limited to:`,
         allowed: ['✅ YouTube videos*', '✅ Short videos (YouTube Shorts, Instagram Reels, TikTok, etc)', '✅ Podcasts', '✅ Websites and social media', '✅ Educational purposes'],
         forbidden: ['❌ CD & DVDs', '❌ TV & Radio Broadcasts', '❌ Advertising', '❌ Video games', '❌ Remix or remake music', '❌ Claim music as your own']
     },
