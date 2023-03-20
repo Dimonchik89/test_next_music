@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 import helper from "../../styles/helper.module.scss";
 import accordion from "../../styles/accordion.module.scss";
 
-const AccordionItem = ({title, text, link = ""}) => {
+const AccordionItem = ({title, text, link}) => {
 
     // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
     // const forbiddenContainer = forbidden?.map((item, i) => <p key={i}>{item}</p>)
