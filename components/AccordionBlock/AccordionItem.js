@@ -34,7 +34,6 @@ const AccordionItem = ({title, text}) => {
                     component="span"
                 >
                     {text}
-                    {actualLink}
                     {/*{allowedContainer}
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
