@@ -3,6 +3,7 @@ import { Modal, Box, Typography } from '@mui/material';
 import useValue from '../../hooks/useValue';
 import ErrorModal from './ErrorModal';
 import ModalYoutubeLink from './ModalYoutubeLink';
+import { useRouter } from 'next/router';
 
 import helper from "../../styles/helper.module.scss"
 import modal from "../../styles/modal.module.scss"
@@ -10,6 +11,7 @@ import modal from "../../styles/modal.module.scss"
 const ModalFixIt = ({showModal, handleCloseModal}) => {
     const { value, clearValue } = useValue()
     const [showError, setShowError] = useState(false)
+    const router = useRouter()
 
     const closeErrorModal = () => {
         setShowError(false)
@@ -20,7 +22,11 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
             <Modal
                 open={showModal}
                 onClose={() => {
-                    handleCloseModal()
+                    // handleCloseModal()
+                    router.push({
+                        pathname: '',
+                        query: ""
+                    }, undefined, {scroll: false, shallow: false})
                     clearValue()
                 }}
             >

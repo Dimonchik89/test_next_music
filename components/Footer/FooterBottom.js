@@ -13,7 +13,13 @@ const FooterBottom = ({handleShowModal}) => {
             <Box className={footer.bottom__content}>
                 <button 
                     className={footer.link}
-                    onClick={handleShowModal}
+                    // onClick={handleShowModal}
+                    onClick={() => router.push({
+                        pathname: "/",
+                        query: {
+                            fix: "fix"
+                        },
+                    }, undefined, {scroll: false, shallow: false})}
                 >
                     Got a Claim? Fix it
                 </button>

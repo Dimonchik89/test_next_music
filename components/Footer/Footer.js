@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import { Container, Box } from "@mui/system";
 import FooterHead from "./FooterHead";
 import FooterIcons from "./FooterIcons";
 import FooterBottom from "./FooterBottom";
 import { Modal, Typography, Container, Box } from "@mui/material";
+import { useRouter } from "next/router";
 
 import footer from "../../styles/footer.module.scss";
 import helper from '../../styles/helper.module.scss';
@@ -15,6 +16,15 @@ import ModalFixIt from "../Modal/ModalFixIt";
 
 const Footer = () => {
     const [showModal, setShowModal] = useState(false)
+    const { query } = useRouter()
+
+    useEffect(() => {
+        if (query?.fix) {
+            handleShowModal()
+        } else {
+            handleCloseModal()
+        }
+    }, [query?.fix])
 
     const handleShowModal = () => {
         setShowModal(true)
