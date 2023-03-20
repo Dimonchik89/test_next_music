@@ -173,10 +173,6 @@ function WaveSurferNext({ currentTimeDublicate, music, togglePlay, showHeaderPla
     }
   }
 
-  useEffect(() => {
-    console.log("loading", loading)
-  }, [loading])
-
   return (
     <>
       <div className={`${helper.d__flex} ${helper.align__end} ${helper.height__100}`}>
