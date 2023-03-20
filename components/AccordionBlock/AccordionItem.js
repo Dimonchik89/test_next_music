@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 import helper from "../../styles/helper.module.scss";
 import accordion from "../../styles/accordion.module.scss";
 
-const AccordionItem = ({title, text, link}) => {
+const AccordionItem = ({title, text}) => {
 
     // const actualLink = !!link ? <a target="_blank" href={link}>YouTube</a> : null
     // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
