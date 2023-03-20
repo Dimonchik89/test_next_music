@@ -31,30 +31,30 @@ const AccordionItem = ({title, text, link, allowed, forbidden}) => {
                 </Box>
             </AccordionSummary>
             <AccordionDetails>
-                <Typography
-                    variant="h4"
-                    component="span"
-                >
-                    {text}
-                </Typography>
-                {!!link ? 
-                    <button 
-                        style={{fontSize: "20px", color: "#900"}}
-                        // onClick={handleShowModal}
-                        onClick={() => router.push({
-                            pathname: "/",
-                            query: {
-                                fix: "fix"
-                            },
-                        }, undefined, {scroll: false, shallow: false})}
-                    >
-                        form
-                    </button> : 
-                null}
-
                 <Box className={helper.mb__20}>
+                    <Typography
+                        variant="h4"
+                        component="span"
+                    >
+                        {text}
+                    </Typography>
+                    {!!link ? 
+                        <button 
+                            style={{fontSize: "20px", color: "#900"}}
+                            // onClick={handleShowModal}
+                            onClick={() => router.push({
+                                pathname: "/",
+                                query: {
+                                    fix: "fix"
+                                },
+                            }, undefined, {scroll: false, shallow: false})}
+                        >
+                            form
+                        </button> : 
+                    null}
                     {allowedContainer}
-                </Box>           
+                </Box>
+                            
                 {!!allowed ? <Typography
                     variant="h4"
                     component="span"
