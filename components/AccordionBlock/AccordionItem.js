@@ -40,7 +40,7 @@ const AccordionItem = ({title, text, link, allowed, forbidden}) => {
                     </Typography>
                     {!!link ? 
                         <button 
-                            style={{fontSize: "20px", color: "#900"}}
+                            style={{fontSize: "20px", color: "#900", cursor: "pointer"}}
                             // onClick={handleShowModal}
                             onClick={() => router.push({
                                 pathname: "/",
