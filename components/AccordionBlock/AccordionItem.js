@@ -39,7 +39,7 @@ const AccordionItem = ({title, text, link}) => {
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
                 </Typography>
-                {!!link ? 
+                {/* {!!link ? 
                     <button 
                         className={footer.link}
                         // onClick={handleShowModal}
@@ -52,8 +52,19 @@ const AccordionItem = ({title, text, link}) => {
                     >
                         Youtube
                     </button> : 
-                    null
-                }
+                null} */}
+                <button 
+                    className={footer.link}
+                    // onClick={handleShowModal}
+                    onClick={() => router.push({
+                        pathname: "/",
+                        query: {
+                            fix: "fix"
+                        },
+                    }, undefined, {scroll: false, shallow: false})}
+                >
+                    Youtube
+                </button>
             </AccordionDetails>
         </Accordion>
     )
