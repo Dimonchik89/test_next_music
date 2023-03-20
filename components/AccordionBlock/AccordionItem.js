@@ -10,6 +10,7 @@ import accordion from "../../styles/accordion.module.scss";
 
 const AccordionItem = ({title, text, link}) => {
 
+    const actualLink = !!link ? <a target="_blank" href={link}>YouTube</a> : null
     // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
     // const forbiddenContainer = forbidden?.map((item, i) => <p key={i}>{item}</p>)
 
@@ -33,7 +34,7 @@ const AccordionItem = ({title, text, link}) => {
                     component="span"
                 >
                     {text}
-                    {!!link ? <a style={{color: "red"}} target="_blank" href={link}>YouTube</a> : null}
+                    {actualLink}
                     {/*{allowedContainer}
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
