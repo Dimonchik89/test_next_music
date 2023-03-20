@@ -4,12 +4,14 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box } from '@mui/material';
+import { useRouter } from 'next/router';
 
 import helper from "../../styles/helper.module.scss";
 import accordion from "../../styles/accordion.module.scss";
 import footer from "../../styles/footer.module.scss";
 
 const AccordionItem = ({title, text, link}) => {
+    const router = useRouter()
 
     // const actualLink = !!link ? <a target="_blank" href={link}>YouTube</a> : null
     // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
@@ -40,7 +42,7 @@ const AccordionItem = ({title, text, link}) => {
                     {!!forbidden ? 'Not Allowed:' : null}
                     {forbiddenContainer} */}
                 </Typography>
-                {/* {!!link ? 
+                {!!link ? 
                     <button 
                         className={footer.link}
                         // onClick={handleShowModal}
@@ -53,8 +55,8 @@ const AccordionItem = ({title, text, link}) => {
                     >
                         Youtube
                     </button> : 
-                null} */}
-                <button 
+                null}
+                {/* <button 
                     className={footer.link}
                     // onClick={handleShowModal}
                     onClick={() => router.push({
@@ -65,7 +67,7 @@ const AccordionItem = ({title, text, link}) => {
                     }, undefined, {scroll: false, shallow: false})}
                 >
                     Youtube
-                </button>
+                </button> */}
             </AccordionDetails>
         </Accordion>
     )
