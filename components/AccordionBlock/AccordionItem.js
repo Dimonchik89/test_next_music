@@ -8,10 +8,10 @@ import { Box } from '@mui/material';
 import helper from "../../styles/helper.module.scss";
 import accordion from "../../styles/accordion.module.scss";
 
-const AccordionItem = ({title, text, link, allowed, forbidden}) => {
+const AccordionItem = ({title, text}) => {
 
-    const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
-    const forbiddenContainer = forbidden?.map((item, i) => <p key={i}>{item}</p>)
+    // const allowedContainer = allowed?.map((item, i) => <p key={i}>{item}</p>)
+    // const forbiddenContainer = forbidden?.map((item, i) => <p key={i}>{item}</p>)
 
     return (
         <Accordion className={accordion.bg}>
@@ -33,10 +33,10 @@ const AccordionItem = ({title, text, link, allowed, forbidden}) => {
                     component="span"
                 >
                     {text}
-                    {link ? <a style={{color: "red"}} target="_blank" href="https://www.youtube.com/@tuneboxmusic">YouTube</a> : null}
+                    {/* {link ? <a style={{color: "red"}} target="_blank" href="https://www.youtube.com/@tuneboxmusic">YouTube</a> : null}
                     {allowedContainer}
                     {!!forbidden ? 'Not Allowed:' : null}
-                    {forbiddenContainer}
+                    {forbiddenContainer} */}
                 </Typography>
             </AccordionDetails>
         </Accordion>

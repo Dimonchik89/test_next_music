@@ -10,7 +10,7 @@ import helper from "../../styles/helper.module.scss"
 
 const AccordionBlock = ({title, accordionArray}) => {
 
-    const content = accordionArray?.map((item, i) => <AccordionItem key={i} title={item.title} text={item.text} link={item?.link} allowed={item?.allowed} forbidden={item?.forbidden}/>)
+    const content = accordionArray?.map((item, i) => <AccordionItem key={i} title={item.title} text={item.text}/>)
 
     return (
         <Box className={helper.mt__60}>
