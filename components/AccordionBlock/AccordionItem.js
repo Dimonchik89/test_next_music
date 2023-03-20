@@ -44,7 +44,8 @@ const AccordionItem = ({title, text, link}) => {
                 </Typography>
                 {!!link ? 
                     <button 
-                        className={footer.link}
+                        // className={footer.link}
+                        style={{fontSize: "20px", color: "#900"}}
                         // onClick={handleShowModal}
                         onClick={() => router.push({
                             pathname: "/",
