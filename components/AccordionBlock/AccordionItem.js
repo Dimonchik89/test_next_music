@@ -51,8 +51,10 @@ const AccordionItem = ({title, text, link, allowed, forbidden}) => {
                         form
                     </button> : 
                 null}
-                            
-                {allowedContainer}
+
+                <Box className={helper.mb__20}>
+                    {allowedContainer}
+                </Box>           
                 {!!allowed ? <Typography
                     variant="h4"
                     component="span"
