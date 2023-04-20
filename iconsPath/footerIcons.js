@@ -2,7 +2,7 @@ export const footerIcons = [
     {
         title: 'instagram',
         iconPath: '../../static/icon/instagram_big.svg',
-        linkPath: 'https://www.instagram.com/'
+        linkPath: 'https://instagram.com/tunebox_music?igshid=ODM2MWFjZDg='
     },
     {
         title: 'facebook',
@@ -17,6 +17,6 @@ export const footerIcons = [
     {
         title: 'youtube',
         iconPath: '../../static/icon/youtube_big.svg',
-        linkPath: 'https://www.youtube.com/'
+        linkPath: 'https://www.youtube.com/@tuneboxmusic'
     },
 ]
