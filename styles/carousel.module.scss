@@ -60,17 +60,10 @@
     border: 2px solid $gray;
     transition: all .2s ease-in-out;
     cursor: pointer;
-    // width: 28rem;
-    // height: 22rem;
 
     &:hover {
         border: 2px solid $yellow;
     }
-
-    // @include _375 {
-    //     width: 16.8rem;
-    //     height: 11.2rem;
-    // }
 
     .carousel__title_wrapper {
         position: absolute;

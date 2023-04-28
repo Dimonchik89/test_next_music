@@ -25,38 +25,6 @@ const Carousel = ({styleWrapper, category}) => {
     return (
         <Box className={styleWrapper}>
             <Box className={carousel.carousel__wrapper}>
-                {/* <Swiper
-                    slidesPerView={2}
-                    spaceBetween={10}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
-                    navigation={{
-                        prevEl: navigationPrevRef.current,
-                        nextEl: navigationNextRef.current,
-                    }}
-                    onBeforeInit={(swiper) => {
-                        swiper.params.navigation.prevEl = navigationPrevRef.current;
-                        swiper.params.navigation.nextEl = navigationNextRef.current;
-                    }}
-                    modules={[Grid]}
-                    className="mySwiper"
-                    breakpoints={{
-                        375: {
-                            grid: {rows: 2, fill: "row"},
-                            modules: [Grid],
-                            slidesPerView: 2,
-                            marginRight: 10,
-                            slidesPerGroup: 2,
-                        },
-                        900: {
-                            slidesPerView: 3,
-                        }
-                    }}
-                >
-                    {slides}
-                </Swiper> */}
-
                 <Swiper
                     spaceBetween={20}
                     slidesPerView={1.5}
@@ -75,7 +43,7 @@ const Carousel = ({styleWrapper, category}) => {
                             slidesPerView: 3.2,
                         },
                         991: {
-                            slidesPerView: 4,
+                            slidesPerView: 4.3,
                         },
                     }}
                     
