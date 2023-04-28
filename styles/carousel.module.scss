@@ -17,6 +17,10 @@
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
+
+    @include _991 {
+        display: none;
+    }
 }
 
 .carousel__wrapper {
@@ -36,7 +40,7 @@
 }
 
 .navigation__next {
-    right: -4rem;
+    right: -6rem;
 
     @include _1366 {
         right: -4rem;
@@ -56,17 +60,17 @@
     border: 2px solid $gray;
     transition: all .2s ease-in-out;
     cursor: pointer;
-    width: 28rem;
-    height: 22rem;
+    // width: 28rem;
+    // height: 22rem;
 
     &:hover {
         border: 2px solid $yellow;
     }
 
-    @include _375 {
-        width: 16.8rem;
-        height: 11.2rem;
-    }
+    // @include _375 {
+    //     width: 16.8rem;
+    //     height: 11.2rem;
+    // }
 
     .carousel__title_wrapper {
         position: absolute;

@@ -36,6 +36,14 @@
   font-style: normal;
 }
 
+// $minWidth: 320px;
+// $maxWidth: 1440;
+// $maxWidthContainer: 1270;
+// $md1: $maxWidthContainer + 12;
+// $md2: 991.98;
+// $md3: 767.98;
+// $md4: 479.98;
+
 
 html,
 body {
@@ -100,6 +108,17 @@ button {
   font-size: 2.5rem !important;
 }
 
+._ibg {
+    position: relative;
+    
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
 
 // .swiper-wrapper {
 

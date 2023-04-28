@@ -60,7 +60,8 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
           <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
           <meta name="msapplication-TileColor" content="#da532c"/>
           <meta name="theme-color" content="#ffffff"/>
-          <meta name="robots" content="noindex"/>
+          <meta name="robots" content="index, follow"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </Head>
       <Main/>
     </>

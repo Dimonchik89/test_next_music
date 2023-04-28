@@ -13,7 +13,6 @@ import carousel from "../../styles/carousel.module.scss";
 SwiperCore.use([Navigation]);
 
 const Carousel = ({styleWrapper, category}) => {
-    const sliderRef = useRef(null)
     const navigationPrevRef = useRef(null)
     const navigationNextRef = useRef(null)
 
@@ -26,7 +25,7 @@ const Carousel = ({styleWrapper, category}) => {
     return (
         <Box className={styleWrapper}>
             <Box className={carousel.carousel__wrapper}>
-                <Swiper
+                {/* <Swiper
                     slidesPerView={2}
                     spaceBetween={10}
                     // pagination={{
@@ -51,9 +50,35 @@ const Carousel = ({styleWrapper, category}) => {
                             slidesPerGroup: 2,
                         },
                         900: {
-                            slidesPerView: 4,
+                            slidesPerView: 3,
                         }
                     }}
+                >
+                    {slides}
+                </Swiper> */}
+
+                <Swiper
+                    spaceBetween={20}
+                    slidesPerView={1.5}
+                    navigation={{
+                        prevEl: navigationPrevRef.current,
+                        nextEl: navigationNextRef.current,
+                    }}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1.5
+                        }, 
+                        480: {
+                            slidesPerView: 2,
+                        },
+                        768: {
+                            slidesPerView: 3.2,
+                        },
+                        991: {
+                            slidesPerView: 4,
+                        },
+                    }}
+                    
                 >
                     {slides}
                 </Swiper>

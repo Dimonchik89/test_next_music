@@ -36,14 +36,30 @@ const CarouselItem = ({slide, allStop, hideHeaderPlayer, selectActualCategoryId,
         }
     }, [actualCategoryId])
 
+    //-----------
+    const pb = 230 / 310 * 100;
+
     return (
+        // <Box className={style} onClick={handleChangeQuery}>
+        //     <picture>
+        //         <img
+        //             src={`${process.env.NEXT_PUBLIC_IMG_URL}${slide.img}`}
+        //             alt="category"
+        //         />
+        //     </picture>
+        //     <Box className={carousel.carousel__title_wrapper}>
+        //         <span className={`${carousel.title}`}>
+        //             {slide.name}
+        //         </span>
+        //     </Box>
+        // </Box>
         <Box className={style} onClick={handleChangeQuery}>
-            <picture>
+            <div className='_ibg' style={{paddingBottom: `${pb}%`}}>
                 <img
                     src={`${process.env.NEXT_PUBLIC_IMG_URL}${slide.img}`}
                     alt="category"
                 />
-            </picture>
+            </div>
             <Box className={carousel.carousel__title_wrapper}>
                 <span className={`${carousel.title}`}>
                     {slide.name}
