@@ -13,7 +13,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from '../styles/Home.module.scss'
 
-const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCategoryId, addUser, selectMusics, changeSearchValue, changeCurrentPage, changeLimit}) => {
+const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCategoryId, addUser, selectMusics, changeSearchValue, changeCurrentPage, changeLimit, firstLoad}) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -45,6 +45,17 @@ const Home = ({category, checkRole, serverAudio, addAllCategory, selectActualCat
     }
   }, [])
 
+  useEffect(() => {
+    if(firstLoad) {
+      const {page, ...tailQuery} = router.query
+      router.push({
+        pathname: "/",
+        query: {...tailQuery}
+      })
+    }
+
+  }, [firstLoad])
+
   return (
     <>
       <Head>
@@ -73,12 +84,17 @@ export async function getServerSideProps({req, res, query}) {
   const categoryResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category`)
   const category = await categoryResponse.json()
   let serverAudio;
+  let firstLoad = true;
 
   const queryTail = {};
   const filteredQuery = Object.keys(query).filter(item => item !== "page")
   filteredQuery.forEach(item => {
     queryTail[item] = query[item]
   })
+
+  if(req && query.music) {
+    firstLoad = false
+  }
 
   if(query.categoryId) {
     // const audioResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/music?` + new URLSearchParams({...queryTail})) 
@@ -100,7 +116,8 @@ export async function getServerSideProps({req, res, query}) {
     props: {
       category,
       checkRole,
-      serverAudio
+      serverAudio,
+      firstLoad
     }
   }
 }

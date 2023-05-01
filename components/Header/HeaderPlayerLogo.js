@@ -6,7 +6,7 @@ const HeaderPlayerLogo = ({logoPath}) => {
 
     return (
         <Box>
-            <picture className={header.picture}>
+            <picture className={`${header.picture} _ibg`}>
                 <img
                     className={header.logo}
                     src={`${process.env.NEXT_PUBLIC_IMG_URL}${logoPath}`}

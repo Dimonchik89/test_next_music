@@ -58,8 +58,6 @@
 
     .picture {
         display: block;
-        // width: 31rem;
-        // height: 31rem;
         width: 25rem;
         height: 25rem;
         border-radius: 1rem;
@@ -68,6 +66,7 @@
         @include _375 {
             width: 34.3rem;
             height: 34.3rem;
+            margin: 0 auto;
         }
 
         .logo {
@@ -103,12 +102,16 @@
             color: $white;
             text-transform: capitalize;
 
-            @include _375 {
+            @include _767 {
                 display: block;
                 font-size: 4rem;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+            }
+
+            @include _767 {
+                font-size: 3rem;
             }
             
         }
