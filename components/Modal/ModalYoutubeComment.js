@@ -46,7 +46,7 @@ const ModalYoutubeComment = ({songIsDownloading}) => {
                 <p className={modal.info__item}>Free Download: <span ref={trackRef}>{process.env.NEXT_PUBLIC_PAGE_URL}{soundQuery}</span></p>
                 <IconButton
                     disabled={open}
-                    className={helper.reset__padding}
+                    className={`${helper.reset__padding} ${modal.info__copy_btn}`}
                 >
                     <ContentCopyIcon 
                         onClick={copyLink}

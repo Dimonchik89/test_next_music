@@ -2,9 +2,9 @@
 @import "./mixin/mixin.scss";
 
 .container {
-    width: 108rem;
-    height: 100%;
-    max-height: 96rem;
+    // width: 108rem;
+    // height: 100%;
+    // max-height: 96rem;
     overflow-y: scroll;
     border: 2px solid $gray;
     border-radius: 2rem;
@@ -14,7 +14,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 7.5rem;
+    // padding-bottom: 7.5rem;
+
+    padding: 5rem 11rem 7.5rem 11rem;
+
+    @include _1366 {
+        padding: 3rem 4rem 5rem;
+    }
 
     position: absolute;
     top: 50%;
@@ -37,15 +43,26 @@
         border-radius: 1rem;
     }
 
-    @include _375 {
+    @include _767 {
         width: 100%;
         height: 80%;
         padding: 1.6rem;
-        
         overflow-y: scroll;
     }
 
+    // @include _375 {
+    //     width: 100%;
+    //     height: 80%;
+    //     padding: 1.6rem;
+    //     overflow-y: scroll;
+    // }
+
     .header__logo {
+
+        @include _991 {
+            width: 7.5rem;
+            // height: 3.78rem;
+        }
 
         @include _375 {
             width: 4.5rem;
@@ -74,13 +91,20 @@
     }
 
     .block {
-        width: 86rem;
-        height: 20.5rem;
+        // width: 86rem;
+        // height: 20.5rem;
         background: linear-gradient(180deg, #1F1F1F 0%, #242424 100%);
         border-radius: 20px;
         position: relative;
         margin-top: 3rem;
+
         padding-bottom: 3rem;
+        width: 86rem / 108rem * 100%;
+
+        @include _767 {
+            padding-bottom: 1rem;
+            width: 100%;
+        }
 
         @include _375 {
             width: 34.3rem;
@@ -105,7 +129,7 @@
                 -ms-text-kashida-space: 1.2;
                 text-align: center;
 
-                @include _375 {
+                @include _991 {
                     font-size: 2rem;
                 }
             }
@@ -118,9 +142,13 @@
             padding: 0 4.3rem;
             position: relative;
 
+            @include _1366 {
+                flex-direction: column;
+            }
+
             &::before {
                 content: "";
-                width: 68rem;
+                width: 68rem / 86rem * 100%;
                 height: 2px;
                 background-color: $gray;
                 position: absolute;
@@ -137,14 +165,14 @@
                 display: flex;
                 align-items: center;
 
-                @include _375 {
+                @include _991 {
                     display: none;
                 }
             }
 
             .button__block {
 
-                @include _375 {
+                @include _991 {
                     margin: 0 auto;
                     padding: 5rem 0 2.4rem;
                 }
@@ -162,20 +190,21 @@
             padding: 3.1rem 9.3rem 0;
             position: relative;
 
-            @include _375 {
+            @include _991 {
                 padding: 5rem 4rem 2rem 2.3rem;
                 margin-top: 0;
             }
 
             &::before {
                 content: "";
-                width: 68rem;
+                // width: 68rem;
                 height: 2px;
                 background-color: $gray;
                 position: absolute;
                 top: 0;
                 left: 50%;
                 transform: translateX(-50%);
+                width: 68rem / 86rem * 100%;
 
                 @include _375 {
                     top: 0;
@@ -192,8 +221,20 @@
                 line-height: 1.2;
                 margin-right: 3rem;
 
+                @include _991 {
+                    font-size: 1.4rem;
+                    margin-right: 0;
+                }
+
                 @include _375 {
                     font-size: 1.4rem;
+                }
+            }
+
+            .info__copy_btn {
+
+                @include _991 {
+                    display: none;
                 }
             }
         }
@@ -287,7 +328,7 @@
 .youtube__link__container {
     padding: 0 8.8rem;
 
-    @include _375 {
+    @include _991 {
         padding: 0 2.4rem 2.4rem;
     }
 
@@ -303,7 +344,7 @@
         } 
 
         .form__logo {
-            @include _375 {
+            @include _991 {
                 width: 2.6rem;
                 height: 1.8rem;
             }
@@ -347,7 +388,7 @@
             align-items: center;
             cursor: pointer;
 
-            @include _375 {
+            @include _1366 {
                 display: none;
             }
 
