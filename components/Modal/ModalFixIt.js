@@ -35,10 +35,10 @@ const ModalFixIt = ({showModal, handleCloseModal}) => {
                         <Typography
                             variant='h3'
                             component="h4"
-                            className={helper.color__white}
+                            className={`${helper.color__white} ${modal.fix__text}`}
                             textAlign="center"
                         >
-                            If you used music from tunebox.com, then just put the link to the video bellow andassociatedcopyright claims be relesed
+                            If you used music from tuneboxmusic.org, then just put the link to the video bellow and associated copyright claims be relesed
                         </Typography>
                         <ModalYoutubeLink onClose={handleCloseModal}/>
                     </Box>
